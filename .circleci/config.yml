@@ -24,7 +24,7 @@ jobs:
             - .yarn/unplugged
       - run:
           name: Build UI Bundle
-          command: gulp bundle
+          command: npx gulp bundle
 workflows:
   version: 2
 
