@@ -36,7 +36,8 @@ jobs:
       - run:
           name: Upload UI Bundle to Stage
           command: sha512sum build/ui-bundle.zip
-      - build_antora_playbook
+      - build_antora_playbook:
+          build_type: asdfasdfasdf
 
 workflows:
   version: 2
@@ -61,14 +62,19 @@ commands:
   #
   build_antora_playbook:
     description: "Trigger Antora Playbook Build"
-    # parameters:
-    #   live:
-    #     type: boolean
-    #     default: false
+    parameters:
+      build_type:
+        type: string
+        default: "stage"
     steps:
       - run:
           name: Trigger Antora Playbook Build
           command: |
             curl --location --request POST 'https://circleci.com/api/v2/project/github/GoCarrot/antora-playbook/pipeline' \
             --header 'Content-Type: application/json' \
-            -u "${CIRCLE_API_TOKEN}"
+            -u "${CIRCLE_API_TOKEN}" \
+            -d '{
+              "parameters": {
+                "build_type": << parameters.build_type >>
+              }
+            }'
