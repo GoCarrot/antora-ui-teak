@@ -49,6 +49,7 @@ workflows:
   bundle:
     jobs:
       - build:
+          context: Antora
           filters:
             tags:
               ignore: /.*/
