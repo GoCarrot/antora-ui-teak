@@ -68,6 +68,7 @@ commands:
     steps:
       - run:
           name: Trigger Antora Playbook Build
-          command: curl --location --request POST 'https://circleci.com/api/v2/project/github/GoCarrot/antora-playbook/pipeline' \
-                    --header 'Content-Type: application/json' \
-                    -u "${CIRCLE_API_TOKEN}"
+          command: |
+            curl --location --request POST 'https://circleci.com/api/v2/project/github/GoCarrot/antora-playbook/pipeline' \
+            --header 'Content-Type: application/json' \
+            -u "${CIRCLE_API_TOKEN}"
