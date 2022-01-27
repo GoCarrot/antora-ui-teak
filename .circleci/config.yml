@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  teak: teak/sdk-utils@0.0.10
-
 jobs:
   build:
     docker:
@@ -25,12 +22,31 @@ jobs:
       - run:
           name: Build UI Bundle
           command: npx gulp bundle
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build/ui-bundle.zip
+
+  deploy_stage:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Upload UI Bundle to Stage
+          command: sha512sum build/ui-bundle.zip
+
 workflows:
   version: 2
 
   bundle:
     jobs:
       - build:
+          filters:
+            tags:
+              ignore: /.*/
+      - deploy_stage:
           filters:
             tags:
               ignore: /.*/
