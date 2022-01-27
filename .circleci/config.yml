@@ -36,6 +36,12 @@ jobs:
       - run:
           name: Upload UI Bundle to Stage
           command: sha512sum build/ui-bundle.zip
+      - run:
+          name: Build Stage Docs
+          command: |
+            curl --location --request POST 'https://circleci.com/api/v2/project/github/GoCarrot/antora-playbook/pipeline' \
+            --header 'Content-Type: application/json' \
+            -u "${API_TOKEN}"
 
 workflows:
   version: 2
