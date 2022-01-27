@@ -47,6 +47,8 @@ workflows:
             tags:
               ignore: /.*/
       - deploy_stage:
+          requires:
+            - build
           filters:
             tags:
               ignore: /.*/
