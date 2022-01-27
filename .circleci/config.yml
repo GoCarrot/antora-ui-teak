@@ -75,6 +75,6 @@ commands:
             -u "${CIRCLE_API_TOKEN}" \
             -d '{
               "parameters": {
-                "build_type": << parameters.build_type >>
+                "build_type": "<< parameters.build_type >>"
               }
             }'
