@@ -37,7 +37,7 @@ jobs:
           name: Upload UI Bundle to Stage
           command: sha512sum build/ui-bundle.zip
       - build_antora_playbook:
-          build_type: asdfasdfasdf
+          build_type: development
 
 workflows:
   version: 2
@@ -64,8 +64,9 @@ commands:
     description: "Trigger Antora Playbook Build"
     parameters:
       build_type:
-        type: string
-        default: "stage"
+        type: enum
+        default: "development"
+        enum: ["development", "production"]
     steps:
       - run:
           name: Trigger Antora Playbook Build
