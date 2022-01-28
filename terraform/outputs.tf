@@ -10,7 +10,6 @@ output "docs_bucket_name" {
 
 output "upload_role_arn" {
   description = "The ARN of a role to assume to do uploads to the doc bucket"
-  # TODO: Make our own role, don't just have the uploader assume admin.
-  value       = data.aws_ssm_parameter.role_arn.value
+  value       = aws_iam_role.docs-deploy.arn
   sensitive   = true
 }

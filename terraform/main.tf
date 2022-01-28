@@ -190,6 +190,65 @@ resource "aws_cloudfront_distribution" "docs" {
   }
 }
 
+data "aws_iam_policy_document" "docs-deploy" {
+  statement {
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+      "s3:ListBucket"
+    ]
+
+    resources = [
+      "${aws_s3_bucket.docs-bucket.arn}/*"
+    ]
+  }
+
+  statement {
+    actions = [
+      "cloudfront:CreateInvalidation"
+    ]
+
+    resources = [
+      aws_cloudfront_distribution.docs.arn
+    ]
+  }
+}
+
+resource "aws_iam_policy" "docs-deploy" {
+  name        = "DocsDeploy"
+  description = "Allows deploying docs to the S3 bucket and invalidating the Cloudfront distribution."
+
+  policy = data.aws_iam_policy_document.docs-deploy.json
+}
+
+data "aws_iam_policy_document" "allow-meta-account-assume" {
+  statement {
+    actions = [
+      "sts:AssumeRole"
+    ]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.admin.id}:root", ]
+    }
+  }
+}
+
+resource "aws_iam_role" "docs-deploy" {
+  name = "DocsDeploy"
+  path = "/${var.organization_prefix}/ci-service-role/"
+
+  description = "Role for CI to assume to manage doc deployments"
+
+  assume_role_policy = data.aws_iam_policy_document.allow-meta-account-assume.json
+}
+
+resource "aws_iam_role_policy_attachment" "docs-deploy" {
+  role       = aws_iam_role.docs-deploy.name
+  policy_arn = aws_iam_policy.docs-deploy.arn
+}
+
 resource "aws_route53_record" "docs" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = var.subdomain
