@@ -14,6 +14,9 @@
     "last 2 versions"
   ],
   "devDependencies": {
+    "@antora/cli": "3.0.0",
+    "@antora/lunr-extension": "^1.0.0-alpha.3",
+    "@antora/site-generator": "3.0.0",
     "@asciidoctor/core": "~2.2",
     "autoprefixer": "~9.7",
     "browser-pack-flat": "~3.4",
@@ -38,6 +41,7 @@
     "gulp-vinyl-zip": "~2.2",
     "handlebars": "~4.7",
     "highlight.js": "9.18.3",
+    "http-server": "^14.1.0",
     "js-yaml": "~3.13",
     "merge-stream": "~2.0",
     "postcss-calc": "~7.0",

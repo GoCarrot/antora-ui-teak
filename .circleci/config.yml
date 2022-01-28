@@ -1,0 +1,121 @@
+version: 2.1
+
+parameters:
+  build_type:
+    type: enum
+    default: "development"
+    enum: ["development", "production"]
+
+orbs:
+  aws-cli: circleci/aws-cli@2.0.6
+  teak: teak/sdk-utils@0.2
+  slack: circleci/slack@4
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --immutable
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
+      - run:
+          name: Build UI Bundle
+          command: npx gulp bundle
+      - run:
+          name: Build Docs
+          command: npx antora playbook/antora-playbook.yml
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build/*
+            - terraform/*
+            - playbook/build/*
+
+  deploy:
+    docker:
+      - image: cimg/node:lts
+        environment:
+          AWS_REGION=us-east-1
+    steps:
+      - aws-cli/setup
+      - teak/terraform-install:
+          version: 1.0.5
+      - attach_workspace:
+          at: .
+      - teak/terraform-init:
+          path: terraform
+      - run:
+          name: Deploy to << pipeline.parameters.build_type >>
+          command: |
+            export TF_WORKSPACE=<< pipeline.parameters.build_type >>
+            cd playbook/build/site
+            sha512sum index.html
+            eval $(~/terraform/terraform -chdir=../../../terraform output -json | jq -r 'to_entries | map({key: .key | ascii_upcase, value: .value.value, type: .value.value | type}) | map(select(.type == "string" or .type == "number" or .type == "boolean")) | map("TF_OUT_\(.key)=\(.value)") | join("\n")')
+            eval $(aws sts assume-role --role-arn ${TF_OUT_UPLOAD_ROLE_ARN} --role-session-name docs | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
+            aws s3 sync . s3://${TF_OUT_DOCS_BUCKET_NAME} --delete --exclude=robots.txt --dryrun
+      - slack/notify:
+          event: pass
+          template: basic_success_1
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
+
+workflows:
+  version: 2
+
+  build:
+    jobs:
+      - build:
+          context:
+            - Slack
+          filters:
+            tags:
+              ignore: /.*/
+      - deploy:
+          context:
+            - AWS-Write
+            - Slack
+          requires:
+            - build
+          filters:
+            tags:
+              ignore: /.*/
+
+commands:
+  #
+  # Trigger a playbook build
+  #
+  build_antora_playbook:
+    description: "Trigger Antora Playbook Build"
+    parameters:
+      build_type:
+        type: enum
+        default: "development"
+        enum: ["development", "production"]
+    steps:
+      - run:
+          name: Trigger Antora Playbook Build
+          command: |
+            curl --location --request POST 'https://circleci.com/api/v2/project/github/GoCarrot/antora-playbook/pipeline' \
+            --header 'Content-Type: application/json' \
+            -u "${CIRCLE_API_TOKEN}" \
+            -d '{
+              "parameters": {
+                "build_type": "<< parameters.build_type >>"
+              }
+            }'
