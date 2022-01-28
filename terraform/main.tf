@@ -105,6 +105,16 @@ resource "aws_s3_bucket_public_access_block" "docs-bucket" {
   restrict_public_buckets = true
 }
 
+resource "aws_s3_bucket_object" "robots-deny" {
+  count = terraform.workspace == "development" ? 1 : 0
+
+  bucket       = aws_s3_bucket.docs-bucket.id
+  key          = "robots.txt"
+  source       = "${path.module}/deny_all_robots.txt"
+  source_hash  = filemd5("${path.module}/deny_all_robots.txt")
+  content_type = "text/plain"
+}
+
 resource "aws_cloudfront_origin_access_identity" "cloudfront-oai" {
   comment = "OAI for docs bucket access."
 }
