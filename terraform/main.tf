@@ -217,7 +217,8 @@ data "aws_iam_policy_document" "docs-deploy" {
 
   statement {
     actions = [
-      "cloudfront:CreateInvalidation"
+      "cloudfront:CreateInvalidation",
+      "cloudfront:GetInvalidation"
     ]
 
     resources = [
