@@ -200,6 +200,7 @@ data "aws_iam_policy_document" "docs-deploy" {
     ]
 
     resources = [
+      aws_s3_bucket.docs-bucket.arn,
       "${aws_s3_bucket.docs-bucket.arn}/*"
     ]
   }
