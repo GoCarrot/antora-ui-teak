@@ -1,5 +1,15 @@
 version: 2.1
 
+parameters:
+  build_type:
+    type: enum
+    default: "development"
+    enum: ["development", "production"]
+
+orbs:
+  aws-cli: circleci/aws-cli@2.0.6
+  teak: teak/sdk-utils@0.2
+
 jobs:
   build:
     docker:
@@ -22,34 +32,50 @@ jobs:
       - run:
           name: Build UI Bundle
           command: npx gulp bundle
+      - run:
+          name: Build Docs
+          command: npx antora playbook/antora-playbook.yml
       - persist_to_workspace:
           root: .
           paths:
-            - build/ui-bundle.zip
+            - build/*
+            - terraform/*
+            - playbook/build/*
 
-  deploy_stage:
+  deploy:
     docker:
       - image: cimg/node:lts
+        environment:
+          AWS_REGION=us-east-1
     steps:
+      - aws-cli/setup
+      - teak/terraform-install:
+          version: 1.0.5
       - attach_workspace:
           at: .
+      - teak/terraform-init:
+          path: terraform
       - run:
-          name: Upload UI Bundle to Stage
-          command: sha512sum build/ui-bundle.zip
-      - build_antora_playbook:
-          build_type: SHOULDFAIL
+          name: Deploy to << pipeline.parameters.build_type >>
+          command: |
+            export TF_WORKSPACE=<< pipeline.parameters.build_type >>
+            cd playbook/build/site
+            sha512sum index.html
+            BUCKET_NAME=$(~/terraform/terraform -chdir=../../terraform output docs_bucket_name | tr -d '"[:space:]')
+            eval $(aws sts assume-role --role-arn $(~/terraform/terraform -chdir=../../terraform output upload_role_arn | tr -d '"[:space:]') --role-session-name docs | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
+            aws s3 sync . s3://${BUCKET_NAME} --delete --exclude=robots.txt --dryrun
 
 workflows:
   version: 2
 
-  bundle:
+  build:
     jobs:
       - build:
           filters:
             tags:
               ignore: /.*/
-      - deploy_stage:
-          context: Antora
+      - deploy:
+          context: AWS-Write
           requires:
             - build
           filters:
@@ -66,7 +92,7 @@ commands:
       build_type:
         type: enum
         default: "development"
-        enum: ["development", "production", "SHOULDFAIL"]
+        enum: ["development", "production"]
     steps:
       - run:
           name: Trigger Antora Playbook Build

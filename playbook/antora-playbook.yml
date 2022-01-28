@@ -1,0 +1,29 @@
+site:
+  title: Teak Documentation
+  url: http://localhost:8080
+  start_page: component-b::index.adoc
+content:
+  sources:
+  - url: https://gitlab.com/antora/demo/demo-component-a.git
+    branches: HEAD
+    # setting edit_url to false disables the Edit this Page link for any page that originates from this repository
+    # the same thing can be achieved by adding empty credentials (i.e., @) in front of the domain in the URL
+    edit_url: false
+  - url: https://gitlab.com/antora/demo/demo-component-b.git
+    branches: [v2.0, v1.0]
+    start_path: docs
+  # - url: https://github.com/GoCarrot/antora-source-test.git
+  # - url: ../antora-source-test
+  #   branches: HEAD
+  #   start_path: docs
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'
+    index_latest_only: true
+ui:
+  bundle:
+    # The first element of '.' is needed so that the rest of the path is evaluated from
+    # the location of the playbook yml. This way it will work if invoked from either
+    # the playbook path, or the project root path.
+    url: ./../build/ui-bundle.zip
+  supplemental_files: ./supplemental-ui
