@@ -1,0 +1,59 @@
+= Teak Docs
+
+== Building Docs
+
+Build docs using:
+
+  npx antora playbook/antora-playbook.yml
+
+You should see:
+----
+% npx antora playbook/antora-playbook.yml
+Site generation complete!
+Open file:///Users/pat/Code/antora-ui-teak/playbook/build/site/index.html in a browser to view your site.
+----
+
+== Testing Docs
+
+When the docs are built, you can either click on the file link, or by running the web server
+
+  npx http-server playbook/build/site -c-1
+
+You should see:
+----
+% npx http-server playbook/build/site -c-1
+Starting up http-server, serving playbook/build/site
+
+http-server version: 14.1.0
+
+http-server settings:
+CORS: disabled
+Cache: -1 seconds
+Connection Timeout: 120 seconds
+Directory Listings: visible
+AutoIndex: visible
+Serve GZIP Files: false
+Serve Brotli Files: false
+Default File Extension: none
+
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.1.23:8080
+Hit CTRL-C to stop the server
+----
+
+Then navigate to http://127.0.0.1:8080 (by pasting this into your browser or `⌘ + double-click`)
+
+== Editing Docs
+The Atom text editor has spellcheck and some great plugins, including live preview.
+
+=== Install Atom
+
+  brew install atom
+
+=== Install Plugins
+
+Once Atom is installed, go to https://atom.io/packages/asciidoc-assistant and click `Install`
+
+You can live preview using `⌘ + Shift + A`
+
