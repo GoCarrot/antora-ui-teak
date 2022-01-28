@@ -9,6 +9,7 @@ parameters:
 orbs:
   aws-cli: circleci/aws-cli@2.0.6
   teak: teak/sdk-utils@0.2
+  slack: circleci/slack@4
 
 jobs:
   build:
@@ -35,6 +36,9 @@ jobs:
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
       - persist_to_workspace:
           root: .
           paths:
@@ -64,6 +68,12 @@ jobs:
             eval $(~/terraform/terraform -chdir=../../../terraform output -json | jq -r 'to_entries | map({key: .key | ascii_upcase, value: .value.value, type: .value.value | type}) | map(select(.type == "string" or .type == "number" or .type == "boolean")) | map("TF_OUT_\(.key)=\(.value)") | join("\n")')
             eval $(aws sts assume-role --role-arn ${TF_OUT_UPLOAD_ROLE_ARN} --role-session-name docs | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
             aws s3 sync . s3://${TF_OUT_DOCS_BUCKET_NAME} --delete --exclude=robots.txt --dryrun
+      - slack/notify:
+          event: pass
+          template: basic_success_1
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
 
 workflows:
   version: 2
@@ -71,11 +81,15 @@ workflows:
   build:
     jobs:
       - build:
+          context:
+            - Slack
           filters:
             tags:
               ignore: /.*/
       - deploy:
-          context: AWS-Write
+          context:
+            - AWS-Write
+            - Slack
           requires:
             - build
           filters:
