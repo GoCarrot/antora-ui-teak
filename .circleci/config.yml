@@ -9,7 +9,6 @@ parameters:
 orbs:
   aws-cli: circleci/aws-cli@2.0.6
   teak: teak/sdk-utils@0.2
-  slack: circleci/slack@4
 
 jobs:
   build:
@@ -36,9 +35,6 @@ jobs:
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml
-      - slack/notify:
-          event: fail
-          template: basic_fail_1
       - persist_to_workspace:
           root: .
           paths:
@@ -78,12 +74,6 @@ jobs:
                 break
               fi
             done
-      - slack/notify:
-          event: pass
-          template: basic_success_1
-      - slack/notify:
-          event: fail
-          template: basic_fail_1
 
 workflows:
   version: 2
@@ -91,15 +81,12 @@ workflows:
   build:
     jobs:
       - build:
-          context:
-            - Slack
           filters:
             tags:
               ignore: /.*/
       - deploy:
           context:
             - AWS-Write
-            - Slack
           requires:
             - build
           filters:
