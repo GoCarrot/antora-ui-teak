@@ -172,6 +172,8 @@ resource "aws_cloudfront_distribution" "docs" {
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = local.s3_origin_id
 
+    compress = true
+
     forwarded_values {
       query_string = false
 
