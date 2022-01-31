@@ -186,6 +186,15 @@ resource "aws_cloudfront_distribution" "docs" {
     max_ttl                = 86400
   }
 
+  custom_error_response {
+    error_caching_min_ttl = 0
+
+    # 403 is what S3 gives us when trying to access a path that does not exist.
+    error_code         = 403
+    response_code      = 404
+    response_page_path = "/404.html"
+  }
+
   viewer_certificate {
     acm_certificate_arn = data.aws_acm_certificate.certificate.arn
     ssl_support_method  = "sni-only"
