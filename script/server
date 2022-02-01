@@ -1,0 +1,4 @@
+#!/bin/bash
+
+npx gulp bundle && npx antora playbook/antora-playbook.yml
+npx nf -p 8080 start
