@@ -4,8 +4,7 @@ site:
   start_page: teak-unity::index.adoc
 content:
   sources:
-  - url: https://github.com/GoCarrot/teak-unity.git
-    branches: pw/antora
+  - url: ./../../teak-unity
     start_path: docs
 antora:
   extensions:
