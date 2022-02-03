@@ -8,7 +8,7 @@ parameters:
 
 orbs:
   aws-cli: circleci/aws-cli@2.0.6
-  teak: teak/sdk-utils@0.2
+  teak: teak/sdk-utils@dev:alpha
 
 jobs:
   build:
@@ -55,13 +55,14 @@ jobs:
           at: .
       - teak/terraform-init:
           path: terraform
+      - teak/terraform-output:
+          path: terraform
       - run:
           name: Deploy to << pipeline.parameters.build_type >>
           command: |
             export TF_WORKSPACE=<< pipeline.parameters.build_type >>
             cd playbook/build/site
             sha512sum index.html
-            eval $(~/terraform/terraform -chdir=../../../terraform output -json | jq -r 'to_entries | map({key: .key | ascii_upcase, value: .value.value, type: .value.value | type}) | map(select(.type == "string" or .type == "number" or .type == "boolean")) | map("TF_OUT_\(.key)=\(.value)") | join("\n")')
             eval $(aws sts assume-role --role-arn ${TF_OUT_UPLOAD_ROLE_ARN} --role-session-name docs | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
             aws s3 sync . s3://${TF_OUT_DOCS_BUCKET_NAME} --delete --exclude=robots.txt
             INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${TF_OUT_CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --query Invalidation.Id --output text)
