@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://gitlab.com/antora/antora-ui-default.git"
   },
+  "scripts": {
+    "dev": "yarn antora playbook/antora-playbook-dev.yml"
+  },
   "engines": {
     "node": ">= 8.0.0"
   },

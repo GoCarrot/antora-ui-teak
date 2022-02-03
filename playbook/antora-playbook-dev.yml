@@ -6,6 +6,7 @@ content:
   sources:
   - url: ./../../teak-unity
     start_path: docs
+  - url: ./../../teak-docs-new
 antora:
   extensions:
   - require: '@antora/lunr-extension'
