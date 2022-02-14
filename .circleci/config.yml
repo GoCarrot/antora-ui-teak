@@ -123,4 +123,4 @@ commands:
             git checkout << parameters.ref >>
             yarn
             doxygen
-            doxygen2adoc --config .doxygen2adoc.yml build
+            npx doxygen2adoc --config .doxygen2adoc.yml build
