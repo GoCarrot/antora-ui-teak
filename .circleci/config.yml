@@ -5,6 +5,9 @@ parameters:
     type: enum
     default: "development"
     enum: ["development", "production"]
+  sdk_version:
+    type: string
+    default: "master"
 
 orbs:
   aws-cli: circleci/aws-cli@2.0.6
@@ -32,6 +35,14 @@ jobs:
       - run:
           name: Build UI Bundle
           command: npx gulp bundle
+      - run:
+          name: Install Doxygen
+          command: |
+            sudo apt-get update
+            sudo apt-get install doxygen
+      - build_sdk_docs:
+          sdk: teak-unity
+          ref: pw/doxygen
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml
@@ -93,3 +104,23 @@ workflows:
           filters:
             tags:
               ignore: /.*/
+
+commands:
+  build_sdk_docs:
+    description: "Check out the correct version of SDK docs and generate API documentation"
+    parameters:
+      sdk:
+        type: string
+      ref:
+        type: string
+    steps:
+      - run:
+          name: Build docs for << parameters.sdk >> ref << parameters.ref >>
+          command: |
+            cd ..
+            git clone https://github.com/GoCarrot/<< parameters.sdk >>.git
+            cd << parameters.sdk >>
+            git checkout << parameters.ref >>
+            yarn
+            doxygen
+            doxygen2adoc --config .doxygen2adoc.yml build
