@@ -1,12 +1,12 @@
 site:
   title: Teak Documentation
   url: https://docs.gocarrot-dev.com/
-  start_page: teak-docs-new::index.adoc
+  start_page: sdk-reference::index.adoc
 content:
   sources:
   - url: ./../../teak-unity
     start_path: docs
-  - url: ./../../teak-docs-new
+  - url: ./../../teak-sdk-reference
 antora:
   extensions:
   - require: '@antora/lunr-extension'
