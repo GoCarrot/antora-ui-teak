@@ -115,7 +115,7 @@ commands:
         type: string
     steps:
       - run:
-          name: Build docs for << parameters.sdk >> ref << parameters.ref >>
+          name: Build docs for << parameters.sdk >> (<< parameters.ref >>)
           command: |
             cd ..
             git clone https://github.com/GoCarrot/<< parameters.sdk >>.git
