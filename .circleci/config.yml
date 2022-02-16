@@ -43,9 +43,9 @@ jobs:
       - build_sdk_docs:
           sdk: teak-unity
           ref: pw/doxygen
-      - build_sdk_docs:
-          sdk: teak-ios
-          ref: pw/doxygen
+      # - build_sdk_docs:
+      #     sdk: teak-ios
+      #     ref: pw/doxygen
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml
@@ -119,9 +119,9 @@ commands:
     steps:
       - run:
           name: Build docs for << parameters.sdk >> (<< parameters.ref >>)
-          command: | # git clone https://github.com/GoCarrot/<< parameters.sdk >>.git
+          command: |
             cd ..
-            git clone git@github.com:GoCarrot/<< parameters.sdk >>.git
+            git clone https://github.com/GoCarrot/<< parameters.sdk >>.git
             cd << parameters.sdk >>
             git checkout << parameters.ref >>
             yarn

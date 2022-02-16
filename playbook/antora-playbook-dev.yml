@@ -6,6 +6,10 @@ content:
   sources:
   - url: ./../../teak-unity
     start_path: docs
+  - url: ./../../teak-ios
+    start_path: docs
+  - url: ./../../teak-android
+    start_path: docs
   - url: ./../../teak-sdk-reference
 antora:
   extensions:

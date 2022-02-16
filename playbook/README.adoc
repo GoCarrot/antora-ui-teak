@@ -44,6 +44,17 @@ Hit CTRL-C to stop the server
 
 Then navigate to http://127.0.0.1:8080 (by pasting this into your browser or `⌘ + double-click`)
 
+== Live Reload
+
+  ./script/server
+
+This will build the docs, and then watch the following local directories for changes:
+
+* ../teak-unity/docs
+* ../teak-ios/docs
+* ../teak-android/docs
+* ../teak-sdk-reference
+
 == Editing Docs
 The Atom text editor has spellcheck and some great plugins, including live preview.
 
