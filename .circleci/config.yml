@@ -119,9 +119,9 @@ commands:
     steps:
       - run:
           name: Build docs for << parameters.sdk >> (<< parameters.ref >>)
-          command: |
+          command: | # git clone https://github.com/GoCarrot/<< parameters.sdk >>.git
             cd ..
-            git clone https://github.com/GoCarrot/<< parameters.sdk >>.git
+            git clone git@github.com:GoCarrot/<< parameters.sdk >>.git
             cd << parameters.sdk >>
             git checkout << parameters.ref >>
             yarn
