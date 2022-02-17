@@ -43,9 +43,12 @@ jobs:
       - build_sdk_docs:
           sdk: teak-unity
           ref: pw/doxygen
-      # - build_sdk_docs:
-      #     sdk: teak-ios
-      #     ref: pw/doxygen
+      - build_sdk_docs:
+          sdk: teak-ios
+          ref: pw/doxygen
+      - build_sdk_docs:
+          sdk: teak-android
+          ref: pw/doxygen
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml

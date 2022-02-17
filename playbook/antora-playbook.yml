@@ -5,11 +5,11 @@ site:
 content:
   sources:
   # iOS API
-  # - url: ./../../teak-ios
-  #   start_path: docs
+  - url: ./../../teak-ios
+    start_path: docs
   # Android API
-  # - url: ./../../teak-android
-  #   start_path: docs
+  - url: ./../../teak-android
+    start_path: docs
   # Unity API
   - url: ./../../teak-unity
     start_path: docs
