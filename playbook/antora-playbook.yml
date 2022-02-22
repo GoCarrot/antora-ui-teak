@@ -6,12 +6,15 @@ content:
   sources:
   # iOS API
   - url: ./../../teak-ios
+    edit_url: false
     start_path: docs
   # Android API
   - url: ./../../teak-android
+    edit_url: false
     start_path: docs
   # Unity API
   - url: ./../../teak-unity
+    edit_url: false
     start_path: docs
   # SDK usage docs
   - url: https://github.com/GoCarrot/teak-sdk-reference.git

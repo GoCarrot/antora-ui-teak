@@ -4,12 +4,27 @@ site:
   start_page: sdk-reference::index.adoc
 content:
   sources:
-  - url: ./../../teak-unity
-    start_path: docs
-  - url: ./../../teak-ios
-    start_path: docs
-  - url: ./../../teak-android
-    start_path: docs
+  # - url: ./../../teak-unity
+  #   edit_url: false
+  #   start_path: docs
+  # - url: ./../../teak-ios
+  #   edit_url: false
+  #   start_path: docs
+  # - url: ./../../teak-android
+  #   edit_url: false
+  #   start_path: docs
+  - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+    edit_url: false
+    start_path: unity
+
+  - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+    edit_url: false
+    start_path: ios
+
+  - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+    edit_url: false
+    start_path: android
+
   - url: ./../../teak-sdk-reference
 antora:
   extensions:
