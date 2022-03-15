@@ -16,15 +16,18 @@
   --color-jet-70: #222;
   --color-jet-80: #191919;
   --color-black: #000;
+  /* brand */
+  --brand-color: #f15A29;
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
   --body-font-size--desktop: 1.125em; /* 18px */
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
-  --body-font-color: var(--color-jet-70);
-  --body-font-family: "Roboto", sans-serif;
-  --body-font-weight-bold: 500;
+  --body-font-color: #483949;
+  /* --body-font-family: "Mulish", sans-serif; */
+  --body-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --body-font-weight-bold: 600;
   --monospace-font-family: "Roboto Mono", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
@@ -33,9 +36,9 @@
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
   /* navbar */
-  --navbar-background: var(--color-jet-80);
-  --navbar-font-color: var(--color-white);
-  --navbar_hover-background: var(--color-black);
+  --navbar-background: #eee; /* #f3f3e4; */
+  --navbar-font-color: #645b64;
+  --navbar_hover-background: #f9f9f9; /* #d5cdd5; */
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
@@ -44,7 +47,7 @@
   --navbar-menu-font-color: var(--body-font-color);
   --navbar-menu_hover-background: var(--color-smoke-50);
   /* nav */
-  --nav-background: var(--panel-background);
+  --nav-background: var(--color-white);
   --nav-border-color: var(--color-gray-10);
   --nav-line-height: 1.35;
   --nav-heading-font-color: var(--color-jet-30);
