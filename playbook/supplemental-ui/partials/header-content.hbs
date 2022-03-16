@@ -12,30 +12,40 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        {{#each site.components}}
-        <a class="navbar-item" href="{{{url}}}">{{title}}</a>
-        {{/each}}
-        <a class="navbar-item" href="#">Home</a>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Products</a>
+          <a class="navbar-link" href="#">Getting Started</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
+            {{#each site.components}}
+            <a class="navbar-item" href="{{{url}}}">{{title}}</a>
+            {{/each}}
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
+          <a class="navbar-link" href="#">Integration</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
+            <a class="navbar-item" href="#">Unity</a>
+            <a class="navbar-item" href="#">iOS</a>
+            <a class="navbar-item" href="#">Android</a>
           </div>
         </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="#">Download</a>
-          </span>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Usage Guide</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Notifications</a>
+            <a class="navbar-item" href="#">Audiences</a>
+            <a class="navbar-item" href="#">Incentivized Links</a>
+            <a class="navbar-item" href="#">Email</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Strategies</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Strategy A</a>
+            <a class="navbar-item" href="#">Strategy B</a>
+            <a class="navbar-item" href="#">Strategy C</a>
+          </div>
+        </div>
+      </div>
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item navbar-item-stretch search hide-for-print">
         <div id="search-field" class="field">
