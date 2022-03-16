@@ -36,9 +36,10 @@
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
   /* navbar */
-  --navbar-background: #eee; /* #f3f3e4; */
+  --navbar-background: #f3f3e4; /* #eee; */
   --navbar-font-color: #645b64;
-  --navbar_hover-background: #f9f9f9; /* #d5cdd5; */
+  --navbar_hover-font-color: var(--brand-color);
+  --navbar_hover-background: #fff; /* #f9f9f9; */
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
@@ -47,7 +48,7 @@
   --navbar-menu-font-color: var(--body-font-color);
   --navbar-menu_hover-background: var(--color-smoke-50);
   /* nav */
-  --nav-background: var(--color-white);
+  --nav-background: var(--panel-background);
   --nav-border-color: var(--color-gray-10);
   --nav-line-height: 1.35;
   --nav-heading-font-color: var(--color-jet-30);

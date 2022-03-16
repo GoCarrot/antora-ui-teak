@@ -1,4 +1,5 @@
 .toolbar {
+  /* opacity: 0; */
   color: var(--toolbar-font-color);
   align-items: center;
   background-color: var(--toolbar-background);
