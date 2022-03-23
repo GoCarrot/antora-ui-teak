@@ -4,27 +4,34 @@ site:
   start_page: sdk-reference::index.adoc
 content:
   sources:
-  # - url: ./../../teak-unity
-  #   edit_url: false
-  #   start_path: docs
-  # - url: ./../../teak-ios
-  #   edit_url: false
-  #   start_path: docs
-  # - url: ./../../teak-android
-  #   edit_url: false
-  #   start_path: docs
-  - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
-    edit_url: false
-    start_path: unity
 
-  - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+  ### Locally generated API Docs ###
+  - url: ./../../teak-unity
     edit_url: false
-    start_path: ios
+    start_path: docs
 
-  - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+  - url: ./../../teak-ios
     edit_url: false
-    start_path: android
+    start_path: docs
 
+  - url: ./../../teak-android
+    edit_url: false
+    start_path: docs
+
+  ### Pretend API Docs ###
+  # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+  #   edit_url: false
+  #   start_path: unity
+
+  # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+  #   edit_url: false
+  #   start_path: ios
+
+  # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
+  #   edit_url: false
+  #   start_path: android
+
+  ### Local SDK Reference Docs ###
   - url: ./../../teak-sdk-reference
 antora:
   extensions:

@@ -128,5 +128,5 @@ commands:
             cd << parameters.sdk >>
             git checkout << parameters.ref >>
             yarn
-            doxygen
-            npx doxygen2adoc --config .doxygen2adoc.yml build
+            yarn changelog
+            yarn docs
