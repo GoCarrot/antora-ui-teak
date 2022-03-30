@@ -29,3 +29,16 @@ ui:
     # the playbook path, or the project root path.
     url: ./../build/ui-bundle.zip
   supplemental_files: ./supplemental-ui
+
+asciidoc:
+  extensions:
+  - ./lib/doxygen2adoc
+
+  attributes:
+    doxygen2adoc:
+    - symbols:
+      - ./../../teak-unity/docs/symbolMap.json
+      - ./../../teak-android/docs/symbolMap.json
+      - ./../../teak-ios/docs/symbolMap.json
+      verbose: false
+      strict: false
