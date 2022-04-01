@@ -1,7 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
+const mapLanguage = {
+  'Objective-C' : 'objc',
+  'c#' : 'csharp'
+}
+
 let cachedSymbols = null;
+let doxygen2adoc = null;
 
 function loadAllSymbols(doxygen2adoc) {
   const ret = [];
@@ -43,58 +49,116 @@ function findSymbol(symbol) {
   return [null, null];
 }
 
-function doxygenInlineMacro () {
-  const self = this;
-  self.named('@doxygen2adoc');
-  self.match(/\[\[(?<target>.+)\]\]/);
+function doxygen2adoc_init(document) {
+  // Get configuration
+  let doxygen2adoc = document.getAttribute('doxygen2adoc');
+  if (!doxygen2adoc) {
+    throw new Error(`doxygen2adoc: No paths configured.`);
+  }
+  doxygen2adoc = doxygen2adoc[0];
 
-  self.process(function (parent, target, attrs) {
-    const originalValue = `[[${target}]]`;
-    const requestedSymbol = target.replaceAll('&lt;', '<').replaceAll('&gt;', '>');
+  // Load symbols if not loaded
+  if (!cachedSymbols) {
+    cachedSymbols = loadAllSymbols(doxygen2adoc);
+  }
 
-    // Get configuration
-    let doxygen2adoc = parent.document.attributes.$$smap['doxygen2adoc'];
-    if (!doxygen2adoc) {
-      console.error(`doxygen2adoc: No paths configured. Cannot resolove '${requestedSymbol}'`);
-      return originalValue;
+  return doxygen2adoc;
+}
+
+function replaceTargetWithLink(match, target, linkText) {
+  // Find symbol
+  const [symbolMap, symbol] = doxygen2adoc.strict ?
+    findSymbolStrict(target) :
+    findSymbol(target);
+
+  // If no symbol found, just return the text
+  if (!symbolMap) {
+    if (doxygen2adoc.verbose) {
+      console.error(`doxygen2adoc_link: Cannot resolve '${target}'`);
     }
-    doxygen2adoc = doxygen2adoc[0];
+    return match;
+  }
 
-    // Load symbols if not loaded
-    if (!cachedSymbols) {
-      cachedSymbols = loadAllSymbols(doxygen2adoc);
-    }
+  linkText = target; //linkText ? linkText : target;
+  return `xref:${symbolMap.antora.name}:ROOT:${symbol.source}.adoc#${symbol.target}[${linkText}]`;
+}
 
-    // Find symbol
-    const [symbolMap, symbol] = doxygen2adoc.strict ?
-      findSymbolStrict(requestedSymbol) :
-      findSymbol(requestedSymbol);
+function includeForTarget(target, args, doc) {
+  // Find symbol
+  const [symbolMap, symbol] = doxygen2adoc.strict ?
+    findSymbolStrict(target) :
+    findSymbol(target);
 
-    // If no symbol found, just return the text
-    if (!symbolMap) {
-      if (doxygen2adoc.verbose) {
-        console.error(`doxygen2adoc: Cannot resolove '${requestedSymbol}'`);
-      }
-      return originalValue;
-    }
+  if (!symbolMap) {
+    return [`**Cannot resolve 'doxygen2adoc:${target}'**`];
+  }
 
-    // Turn into a link
-    const link = `/${symbolMap.antora.name}/${symbolMap.antora.version}/${symbol.source}.html#${symbol.target}`;
+  if (!symbol.part) {
+    return [`**No part found for: 'doxygen2adoc:${target}'**`];
+  }
 
-    return this.createInline(parent, 'anchor', target, {
-      type: 'link',
-      target: link
-    });
-  })
+  args = args ? args : '';
+
+  const includeStatement = `include::${symbolMap.antora.name}:ROOT:${symbol.part}[${args}]`;
+
+  let newLines = [includeStatement];
+
+  // Assign default attributes if missing
+  if (!doc.getAttribute('part_decl')) {
+    doc.setAttribute('part_decl', undefined);
+  }
+
+  const targetLanguage = mapLanguage[symbol.language] || symbol.language.toLowerCase();
+  const docSourceLanguage = doc.getAttribute('source-language');
+  if (!docSourceLanguage) {
+    console.log(`YO I AUTO ASSIGNED ${targetLanguage}`)
+    doc.setAttribute('source-language', targetLanguage);
+  } else if (docSourceLanguage !== targetLanguage) {
+    console.log(`YO WE GOTTA CHANGE TO ${targetLanguage}`)
+    newLines = [
+      `:source-language: ${targetLanguage}`,
+      includeStatement,
+      `:source-language: ${docSourceLanguage}`
+    ];
+  }
+
+  return newLines;
 }
 
 module.exports.register = function register (registry) {
-  if (typeof registry.register === 'function') {
-    registry.register(function () {
-      this.inlineMacro(doxygenInlineMacro);
+  registry.preprocessor(function() {
+    const self = this;
+
+    self.process(function (doc, reader) {
+      // Global :(
+      doxygen2adoc = doxygen2adoc_init(doc);
+
+      const lines = reader.lines;
+      reader.lines = [];
+
+      for (i in lines) {
+        const line = lines[i].trim();
+
+        if (match = line.match(/^doxygen2adoc\:(?<target>.+)\[(?<args>.*?)\]$/)) {
+          // doxygen2adoc include, append new lines
+          const newLines = includeForTarget(match.groups.target, match.groups.args, doc);
+          if (newLines) {
+            reader.lines = reader.lines.concat(newLines);
+          } else {
+            // No new lines returned, push original line
+            reader.lines.push(lines[i]);
+          }
+        } else {
+          // Replace
+          reader.lines.push(
+            lines[i].replaceAll(/<<(?<target>.+)>>/gm, replaceTargetWithLink)
+          );
+        }
+      }
+
+      return reader;
     });
-  } else if (typeof registry.block === 'function') {
-    registry.inlineMacro(doxygenInlineMacro);
-  }
+  });
+
   return registry;
 }
