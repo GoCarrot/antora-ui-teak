@@ -42,13 +42,13 @@ jobs:
             sudo apt-get install doxygen
       - build_sdk_docs:
           sdk: teak-unity
-          ref: dev-4.2
+          ref: develop
       - build_sdk_docs:
           sdk: teak-ios
-          ref: dev-4.2
+          ref: develop
       - build_sdk_docs:
           sdk: teak-android
-          ref: dev-4.2
+          ref: develop
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml
