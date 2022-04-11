@@ -128,5 +128,4 @@ commands:
             cd << parameters.sdk >>
             git checkout << parameters.ref >>
             yarn
-            yarn changelog
             yarn docs
