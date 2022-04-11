@@ -37,6 +37,7 @@ asciidoc:
   - ./lib/doxygen2adoc
 
   attributes:
+    experimental: ''
     doxygen2adoc:
     - symbols:
       - ./../../teak-unity/docs/symbolMap.json
