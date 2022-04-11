@@ -54,6 +54,7 @@ This will build the docs, and then watch the following local directories for cha
 * ../teak-ios/docs
 * ../teak-android/docs
 * ../teak-sdk-reference
+* ../teak-usage
 
 == Editing Docs
 The Atom text editor has spellcheck and some great plugins, including live preview.

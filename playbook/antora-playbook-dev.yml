@@ -33,6 +33,9 @@ content:
 
   ### Local SDK Reference Docs ###
   - url: ./../../teak-sdk-reference
+
+  ### Local Usage Docs ###
+  - url: ./../../teak-usage
 antora:
   extensions:
   - require: '@antora/lunr-extension'
