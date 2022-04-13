@@ -141,8 +141,9 @@ module.exports.register = function register (registry) {
       for (i in lines) {
         const line = lines[i].trim();
 
-        if (line.includes('“') || line.includes('”')) {
-          throw new Error(`Smart quotes found in ${doc.getAttribute('docfile')}: ${line}`);
+        const loc = Math.max(line.indexOf('“'), line.indexOf('”'));
+        if (loc >= 0) {
+          throw new Error(`Smart quotes found ${doc.getAttribute('docfile')}:${i}:${loc}\n\t"${line}"`);
         }
 
         if (match = line.match(/^doxygen2adoc\:(?<target>.+)\[(?<args>.*?)\]$/)) {
