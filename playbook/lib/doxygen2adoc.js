@@ -73,9 +73,9 @@ function replaceTargetWithLink(match, target, linkText) {
 
   // If no symbol found, just return the text
   if (!symbolMap) {
-    if (doxygen2adoc.verbose) {
-      console.error(`doxygen2adoc_link: Cannot resolve '${target}'`);
-    }
+    // if (doxygen2adoc.verbose) {
+    //   console.error(`doxygen2adoc_link: Cannot resolve '${target}'`);
+    // }
     return match;
   }
 
@@ -111,10 +111,8 @@ function includeForTarget(target, args, doc) {
   const targetLanguage = mapLanguage[symbol.language] || symbol.language.toLowerCase();
   const docSourceLanguage = doc.getAttribute('source-language');
   if (!docSourceLanguage) {
-    console.log(`YO I AUTO ASSIGNED ${targetLanguage}`)
     doc.setAttribute('source-language', targetLanguage);
   } else if (docSourceLanguage !== targetLanguage) {
-    console.log(`YO WE GOTTA CHANGE TO ${targetLanguage}`)
     newLines = [
       `:source-language: ${targetLanguage}`,
       includeStatement,
@@ -133,11 +131,19 @@ module.exports.register = function register (registry) {
       // Global :(
       doxygen2adoc = doxygen2adoc_init(doc);
 
+      if (doxygen2adoc.verbose) {
+        console.log(`doxygen2adoc: Reading ${doc.getAttribute('docfile')}`);
+      }
+
       const lines = reader.lines;
       reader.lines = [];
 
       for (i in lines) {
         const line = lines[i].trim();
+
+        if (line.includes('“') || line.includes('”')) {
+          throw new Error(`Smart quotes found in ${doc.getAttribute('docfile')}: ${line}`);
+        }
 
         if (match = line.match(/^doxygen2adoc\:(?<target>.+)\[(?<args>.*?)\]$/)) {
           // doxygen2adoc include, append new lines
@@ -151,7 +157,7 @@ module.exports.register = function register (registry) {
         } else {
           // Replace
           reader.lines.push(
-            lines[i].replaceAll(/<<(?<target>.+)>>/gm, replaceTargetWithLink)
+            lines[i].replaceAll(/<<(?<target>.+)>>/g, replaceTargetWithLink)
           );
         }
       }
