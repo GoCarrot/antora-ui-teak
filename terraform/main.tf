@@ -36,7 +36,18 @@ locals {
 
   account_name = local.account_names[terraform.workspace]
 
-  parameter_prefix = "/${var.organization_prefix}/${terraform.workspace}/${local.account_name}"
+  parameter_prefix = module.current_account.param_prefix
+}
+
+module "current_account" {
+  source  = "GoCarrot/accountomat_read/aws"
+  version = "0.0.3"
+
+  providers = {
+    aws = aws.admin
+  }
+
+  canonical_slug = local.account_name
 }
 
 provider "aws" {
