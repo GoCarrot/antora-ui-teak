@@ -158,7 +158,7 @@ module.exports.register = function register (registry) {
         } else {
           // Replace
           reader.lines.push(
-            lines[i].replaceAll(/<<(?<target>.+)>>/g, replaceTargetWithLink)
+            lines[i].replaceAll(/<<(?<target>.+?)>>/g, replaceTargetWithLink)
           );
         }
       }
