@@ -53,6 +53,7 @@ asciidoc:
   - ./lib/doxygen2adoc
 
   attributes:
+    linkattrs: ''
     experimental: ''
     doxygen2adoc:
     - symbols:
