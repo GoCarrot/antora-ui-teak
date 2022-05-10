@@ -80,7 +80,7 @@ function replaceTargetWithLink(match, target, linkText) {
   }
 
   linkText = target; //linkText ? linkText : target;
-  return `xref:${symbolMap.antora.name}:ROOT:${symbol.source}.adoc#${symbol.target}[${linkText}, window=_blank]`;
+  return `xref:${symbolMap.antora.name}:api:${symbol.source}.adoc#${symbol.target}[${linkText}, window=_blank]`;
 }
 
 function includeForTarget(target, args, doc) {
@@ -99,7 +99,7 @@ function includeForTarget(target, args, doc) {
 
   args = args ? args : '';
 
-  const includeStatement = `include::${symbolMap.antora.name}:ROOT:${symbol.part}[${args}]`;
+  const includeStatement = `include::${symbolMap.antora.name}:api:${symbol.part}[${args}]`;
 
   let newLines = [includeStatement];
 
