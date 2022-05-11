@@ -1,4 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+const YAML = require('yaml');
+const { spawn } = require('child_process');
+const { execSync } = require('child_process');
 
-npx gulp bundle && npx antora playbook/antora-playbook-dev.yml
-npx nf -p 8080 start
+const playbook_filename = path.join(__dirname, '..', 'playbook', 'antora-playbook-dev.yml');
+const playbook = YAML.parse(fs.readFileSync(playbook_filename, 'utf-8'));
+
+const watchPaths = [];
+playbook.content.sources.forEach((source) => {
+  const repo = path.join(__dirname, '..', 'playbook', source.url);
+  watchPaths.push(`"${repo}/**/*"`);
+
+  // git pull, if --pull is specified
+  if (process.argv.includes('--pull')) {
+    const cmd = `(cd ${repo} && git pull)`;
+    console.log(execSync(cmd));
+  }
+});
+
+const procfile = path.join(__dirname, '..', 'Procfile');
+fs.writeFileSync(procfile, `web: npx live-server playbook/build/site
+watcher: npx chokidar "*" "**/*" ${watchPaths.join(' ')} --ignore "/build|public/" -c "npx gulp bundle && npx antora playbook/antora-playbook-dev.yml"
+`);
+
+execSync('npx gulp bundle && npx antora playbook/antora-playbook-dev.yml');
+
+const nf = spawn('npx', ['nf', '-p', '8080', 'start'], { stdio: 'inherit' });
+nf.on('error', (err) => {
+  console.error(err);
+});
