@@ -4,22 +4,28 @@ site:
   start_page: home::index.adoc
 content:
   sources:
-  # iOS API
-  - url: ./../../teak-ios
-    edit_url: false
+  ### Home ###
+  - url: ./../
     start_path: docs
-  # Android API
-  - url: ./../../teak-android
-    edit_url: false
-    start_path: docs
-  # Unity API
+
+  ### Locally generated SDK Docs ###
   - url: ./../../teak-unity
     edit_url: false
     start_path: docs
-  # SDK usage docs
-  - url: https://github.com/GoCarrot/server-api-docs.git
-  # Teak usage docs
-  - url: https://github.com/GoCarrot/teak-usage.git
+
+  - url: ./../../teak-ios
+    edit_url: false
+    start_path: docs
+
+  - url: ./../../teak-android
+    edit_url: false
+    start_path: docs
+
+  ### Local Server API Docs ###
+  - url: ./../../server-api-docs
+
+  ### Local Usage Docs ###
+  - url: ./../../teak-usage
 antora:
   extensions:
   - require: '@antora/lunr-extension'
