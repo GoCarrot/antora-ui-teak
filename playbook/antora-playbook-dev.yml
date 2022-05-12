@@ -1,11 +1,15 @@
 site:
   title: Teak Documentation
   url: https://docs.gocarrot-dev.com/
-  start_page: sdk-reference::index.adoc
+  start_page: home::index.adoc
 content:
   sources:
 
-  ### Locally generated API Docs ###
+  ### Home ###
+  - url: ./../
+    start_path: docs
+
+  ### SDK Docs ###
   - url: ./../../teak-unity
     edit_url: false
     start_path: docs
@@ -18,15 +22,15 @@ content:
     edit_url: false
     start_path: docs
 
-  ### Pretend API Docs ###
+  # ## Pretend API Docs ###
   # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
   #   edit_url: false
   #   start_path: unity
-
+  #
   # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
   #   edit_url: false
   #   start_path: ios
-
+  #
   # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
   #   edit_url: false
   #   start_path: android

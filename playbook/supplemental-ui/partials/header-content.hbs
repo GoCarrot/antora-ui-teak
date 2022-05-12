@@ -12,24 +12,19 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+        <!-- <div class="navbar-item">
+          <a class="navbar-link" href="#">🕮</a>
+        </div> -->
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Getting Started</a>
+          <a class="navbar-link" href="#">Setup</a>
           <div class="navbar-dropdown">
             {{#each site.components}}
-            <a class="navbar-item" href="{{{url}}}">{{title}}</a>
+              <a class="navbar-item" href="{{{url}}}">{{title}}</a>
             {{/each}}
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Integration</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Unity</a>
-            <a class="navbar-item" href="#">iOS</a>
-            <a class="navbar-item" href="#">Android</a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Usage Guide</a>
+          <a class="navbar-link" href="#">Usage</a>
           <div class="navbar-dropdown">
             <a class="navbar-item" href="#">Notifications</a>
             <a class="navbar-item" href="#">Audiences</a>
@@ -38,18 +33,28 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Strategies</a>
+          <a class="navbar-link" href="#">Reference</a>
           <div class="navbar-dropdown">
             <a class="navbar-item" href="#">Strategy A</a>
             <a class="navbar-item" href="#">Strategy B</a>
             <a class="navbar-item" href="#">Strategy C</a>
           </div>
         </div>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search"{{#if page.home}} autofocus{{/if}}>
+        </div>
       </div>
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item navbar-item-stretch search hide-for-print">
-        <div id="search-field" class="field">
+
+        <!-- <div id="search-field" class="field">
           <input id="search-input" type="text" placeholder="Search"{{#if page.home}} autofocus{{/if}}>
+        </div> -->
+        <div class="navbar-item">
+          <a class="button" href="https://app.teak.io/" target="_blank">Login</a>
         </div>
       </div>
       {{/if}}
