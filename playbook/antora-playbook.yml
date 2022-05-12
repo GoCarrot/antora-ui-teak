@@ -1,7 +1,7 @@
 site:
   title: Teak Documentation
   url: https://docs.gocarrot-dev.com/
-  start_page: sdk-reference::index.adoc
+  start_page: home::index.adoc
 content:
   sources:
   # iOS API
