@@ -4,12 +4,11 @@ site:
   start_page: home::index.adoc
 content:
   sources:
-
   ### Home ###
   - url: ./../
     start_path: docs
 
-  ### SDK Docs ###
+  ### Locally generated SDK Docs ###
   - url: ./../../teak-unity
     edit_url: false
     start_path: docs
@@ -22,21 +21,8 @@ content:
     edit_url: false
     start_path: docs
 
-  # ## Pretend API Docs ###
-  # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
-  #   edit_url: false
-  #   start_path: unity
-  #
-  # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
-  #   edit_url: false
-  #   start_path: ios
-  #
-  # - url: https://github.com/GoCarrot/pretend-teak-api-docs.git
-  #   edit_url: false
-  #   start_path: android
-
-  ### Local SDK Reference Docs ###
-  - url: ./../../teak-sdk-reference
+  ### Local Server API Docs ###
+  - url: ./../../server-api-docs
 
   ### Local Usage Docs ###
   - url: ./../../teak-usage
