@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const mapLanguage = {
-  'Objective-C' : 'objc',
+  'objective-c' : 'objc',
   'c#' : 'csharp'
 }
 
@@ -108,18 +108,16 @@ function includeForTarget(target, args, doc) {
     doc.setAttribute('part_decl', undefined);
   }
 
-  const targetLanguage = mapLanguage[symbol.language] || symbol.language.toLowerCase();
+  const targetLanguage = mapLanguage[symbol.language.toLowerCase()] || symbol.language.toLowerCase();
   const docSourceLanguage = doc.getAttribute('source-language');
   if (!docSourceLanguage) {
     doc.setAttribute('source-language', targetLanguage);
+  } else if (docSourceLanguage !== targetLanguage) {
+    newLines = [
+      `\r\n:source-language: ${targetLanguage}\n`,
+      includeStatement
+    ];
   }
-  // else if (docSourceLanguage !== targetLanguage) {
-  //   newLines = [
-  //     `:source-language: ${targetLanguage}`,
-  //     includeStatement,
-  //     `:source-language: ${docSourceLanguage}`
-  //   ];
-  // }
 
   return newLines;
 }
