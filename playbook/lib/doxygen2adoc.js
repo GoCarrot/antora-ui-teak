@@ -112,13 +112,14 @@ function includeForTarget(target, args, doc) {
   const docSourceLanguage = doc.getAttribute('source-language');
   if (!docSourceLanguage) {
     doc.setAttribute('source-language', targetLanguage);
-  } else if (docSourceLanguage !== targetLanguage) {
-    newLines = [
-      `:source-language: ${targetLanguage}`,
-      includeStatement,
-      `:source-language: ${docSourceLanguage}`
-    ];
   }
+  // else if (docSourceLanguage !== targetLanguage) {
+  //   newLines = [
+  //     `:source-language: ${targetLanguage}`,
+  //     includeStatement,
+  //     `:source-language: ${docSourceLanguage}`
+  //   ];
+  // }
 
   return newLines;
 }
