@@ -42,6 +42,8 @@ asciidoc:
   - ./lib/doxygen2adoc
 
   attributes:
+    page-component-sort-order: 'home, usage, *'
+    page-reference-sort-order: '!home, !usage, server-api, *'
     linkattrs: ''
     experimental: ''
     doxygen2adoc:
