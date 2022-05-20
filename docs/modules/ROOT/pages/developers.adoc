@@ -1,0 +1,14 @@
+= Teak for Developers
+
+== Client Developers
+
+[cols="1a, 1a, 1a", frame="none"]
+|===
+|xref:android::page$integration.adoc[image:android-logo-png-transparent.png[]]
+|xref:ios::page$integration.adoc[image:IOS_15_logo.png[]]
+|xref:usage::page$index.adoc[image:unity.png.webp[]]
+|===
+
+== Server Developers
+
+xref:server-api::page$rewards/endpoint.adoc[Server API]

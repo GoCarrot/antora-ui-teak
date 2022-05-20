@@ -1,6 +1,13 @@
 :page-no-nav: true
 
-= Welcome to Teak
+= Welcome to the Teak Docs
+
+[cols="1a, 1a, 1a", frame="none"]
+|===
+|xref:developers.adoc[image:http://placekitten.com/200/300[] Developers]
+|xref:usage::page$index.adoc[image:http://placekitten.com/200/300[] Daily Users]
+|xref:usage::page$index.adoc[image:http://placekitten.com/200/300[] Confused Humans]
+|===
 
 I added the ability to disable the navigation by putting ``:page-no-nav: true`` at the top.
 
