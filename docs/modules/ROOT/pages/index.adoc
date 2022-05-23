@@ -2,26 +2,6 @@
 
 = Welcome to the Teak Docs
 
-[cols="1a, 1a, 1a", frame="none"]
-|===
-|xref:developers.adoc[image:http://placekitten.com/200/300[] Developers]
-|xref:usage::page$index.adoc[image:http://placekitten.com/200/300[] Daily Users]
-|xref:usage::page$index.adoc[image:http://placekitten.com/200/300[] Confused Humans]
-|===
+xref:developers.adoc[Teak for Developers]
 
-I added the ability to disable the navigation by putting ``:page-no-nav: true`` at the top.
-
-What we're gonna probably want here is a kind of "choose your adventure". Ultimately we're sending people to one of the following components:
-
-* Getting Started (this module)
-* xref:usage::page$index.adoc[Teak Usage]
-* xref:unity::page$before-you-start.adoc[Unity]
-* xref:ios::page$integration.adoc[iOS]
-* xref:android::page$integration.adoc[Android]
-* xref:server-api::page$rewards/endpoint.adoc[Server API]
-
-== TODO List
-
-* Make footer less obtrusive?
-* Finish this page
-* Landing page for Teak Usage, not sure just the TOC is a good idea (or needed)
+xref:usage::page$index.adoc[Teak for Marketing]
