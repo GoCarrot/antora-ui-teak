@@ -16,14 +16,6 @@
           <a class="navbar-link" href="#">🕮</a>
         </div> -->
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Setup</a>
-          <div class="navbar-dropdown">
-            {{#each (componentSorter site.components page.attributes.component-sort-order)}}
-              <a class="navbar-item" href="{{{url}}}">{{title}}</a>
-            {{/each}}
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">Usage</a>
           <div class="navbar-dropdown">
             {{#each site.components.usage.latest.navigation}}
