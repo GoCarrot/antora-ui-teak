@@ -1,6 +1,6 @@
 site:
   title: Teak Documentation
-  url: https://docs.gocarrot-dev.com/
+  url: /
   start_page: home::index.adoc
 content:
   sources:
