@@ -64,10 +64,6 @@ jobs:
       - image: cimg/node:lts
         environment:
           AWS_REGION=us-east-1
-    parameters:
-      bucket_env_var:
-        type: string
-        default: TF_OUT_DOCS_BUCKET_NAME
     steps:
       - aws-cli/setup
       - teak/terraform-install:
@@ -96,10 +92,6 @@ jobs:
                 break
               fi
             done
-      - run:
-          name: Test a pipeline variable thing
-          command: |
-            echo ${<< parameters.bucket_env_var >>}
 
 workflows:
   version: 2
