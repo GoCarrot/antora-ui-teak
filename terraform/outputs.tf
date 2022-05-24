@@ -3,8 +3,13 @@ output "cloudfront_distribution_id" {
   value       = aws_cloudfront_distribution.docs.id
 }
 
-output "docs_bucket_name" {
-  description = "The name of the bucket for hosting docs."
+output "dev_docs_bucket_name" {
+  description = "The name of the bucket for hosting development docs."
+  value       = aws_s3_bucket.docs-bucket.id
+}
+
+output "proddocs_bucket_name" {
+  description = "The name of the bucket for hosting production docs."
   value       = aws_s3_bucket.docs-bucket.id
 }
 
