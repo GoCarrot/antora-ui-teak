@@ -8,6 +8,10 @@ variable "domain_root" {
   description = "The root domain (e.g. example.com) that docs should be hosted under."
 }
 
+variable "certificate_domain_format" {
+  description = "The format string that domain_root will be templated into to find an ACM certificate."
+}
+
 variable "subdomain" {
   description = "The subdomain of var.domain_root that docs should be hosted under."
   type        = string

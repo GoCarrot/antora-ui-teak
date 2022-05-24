@@ -88,7 +88,7 @@ data "aws_route53_zone" "zone" {
 }
 
 data "aws_acm_certificate" "certificate" {
-  domain      = "*.${var.domain_root}"
+  domain      = format(var.certificate_domain_format, var.domain_root)
   statuses    = ["ISSUED"]
   most_recent = true
 }
