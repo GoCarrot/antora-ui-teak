@@ -2,6 +2,9 @@ site:
   title: Teak Documentation
   url: /
   start_page: home::index.adoc
+urls:
+  latest_version_segment_strategy: replace
+  latest_version_segment: latest
 content:
   sources:
   ### Home ###
