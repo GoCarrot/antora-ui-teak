@@ -7,7 +7,7 @@ parameters:
     enum: ["development", "production"]
   sdk_version:
     type: string
-    default: "master"
+    default: "develop"
 
 orbs:
   aws-cli: circleci/aws-cli@2.0.6
@@ -42,13 +42,13 @@ jobs:
             sudo apt-get install doxygen
       - build_sdk_docs:
           sdk: teak-unity
-          ref: develop
+          ref: << pipeline.parameters.sdk_version >>
       - build_sdk_docs:
           sdk: teak-ios
-          ref: develop
+          ref: << pipeline.parameters.sdk_version >>
       - build_sdk_docs:
           sdk: teak-android
-          ref: develop
+          ref: << pipeline.parameters.sdk_version >>
       - run:
           name: Build Docs
           command: npx antora playbook/antora-playbook.yml
