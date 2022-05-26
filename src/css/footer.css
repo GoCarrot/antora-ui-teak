@@ -13,3 +13,58 @@ footer.footer {
 .footer a {
   color: var(--footer-link-font-color);
 }
+
+
+/* footer from the homepage */
+
+.globalfooter {
+  height: 100%;
+  padding: 2.6em 0;
+  color: #9E9EB6;
+  border: 0.61805em solid #1e171e;
+  background-color: #1e171e !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-size: 13px;
+  line-height: 1.2em;
+}
+.globalfooter-wrapper {
+  display: flex;
+}
+.globalfooter-info-header {
+  position: relative;
+  margin-bottom: 1.6em;
+}
+.globalfooter-info {
+  max-width: 420px;
+  margin-right: 34px;
+}
+.globalfooter-sitemenu {
+}
+.globalfooter-logo {
+  height: 3em;
+}
+.globalfooter-info-body {
+  margin-bottom: 2.7em;
+}
+.navmenu-header {
+  margin-top: 1.2em;
+}
+.globalfooter-copywrite {
+  display: block;
+  clear: both;
+  padding-top: 2.6em;
+}
+.inlinegroup {
+
+}
+.inlinegroup-item {
+  margin-right: 12px;
+}
+.navmenu-list-item a {
+  font-weight: bold;
+  color: #9E9EB6;
+}
+h6 {
+  font-weight: 300;
+}
