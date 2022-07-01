@@ -1,7 +1,43 @@
 :page-no-nav: true
 
-= Welcome to the Teak Docs
+= Getting Started
 
-xref:developers.adoc[Teak for Developers]
+If you're a developer tasked with integrating Teak you can get started here: xref:developers.adoc[Teak for Developers]
 
-xref:usage::page$index.adoc[Teak for Marketing]
+If you're looking for how to use the product once it's integrated, start here: xref:usage::page$index.adoc[Teak for Marketing]
+
+Otherwise read on for an overview of the process and we'll help you get started.
+
+== Assumptions
+
+What do we want to say here? We should contextualize what we're trying to do, this doc is aimed at product-management.
+
+TODO
+
+== Before You Start
+
+Sometimes the hardest task is getting all of the right people in the room together. Here's a list of what you're going to need for _complete_ integration with Teak, in rough order of importance.
+
+* SDK Integration
+* Push Credentials
+* Server-to-server Reward Integration
+
+== SDK Integration
+
+In order to complete SDK integration, you will need:
+
+* A developer who can build and test your game
+
+SDK integration is a client developer task that can be accomplished and confirmed without too much work.
+
+TODO
+
+include::partial$push-credentials.adoc[leveloffset=+1]
+
+== Server-to-server Reward Integration
+
+In order to complete server-to-server reward integration, you will need:
+
+* A developer who can create an endpoint reachable by the Teak servers
+
+Follow these instructions to implement the server-to-server reward endpoint: xref:server-api::page$rewards/endpoint.adoc[Teak Reward Endpoint].

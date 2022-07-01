@@ -1,11 +1,67 @@
 = Teak for Developers
 
-== Client Developers
+If you know where you're going already,
+
+== Quick Start
+
+=== Client Developers
 
 * xref:android::page$integration.adoc[Android]
 * xref:ios::page$integration.adoc[iOS]
 * xref:unity::page$before-you-start.adoc[Unity]
 
-== Server Developers
+=== Server Developers
 
 * xref:server-api::page$rewards/endpoint.adoc[Server API]
+
+== Before You Start
+
+Before you start working with Teak there's a few things you'll want to have ready to streamline the process.
+
+xref:developers.adoc[Teak for Developers]
+
+xref:usage::page$index.adoc[Teak for Marketing]
+
+NOTE: Even if you can't collect all of these things right away, read through the entire list so you know what to expect.
+
+== Your Game
+
+You'll need a game to integrate, on iOS, Android or Facebook and a way to test new builds of it. A great deal of debugging information is written to the log window, so you'll want to make sure you can look at the device log.
+
+=== Unity
+
+If you build your game using Unity you will need to be able to do a few things for Android projects.
+
+NOTE: If your Unity-based game is iOS only you can safely skip this section.
+
+==== Android
+
+If your game is available on Android, you will need some way to add things to an Android Manifest. This is frequently done in one of two ways:
+
+* A manifest that is located at `Assets/Plugins/Android/AndroidManifest.xml`
+* A manifest that is merged in by a custom Gradle build
+
+You will also need a way to add dependencies to your project. This is frequently done in one of two ways:
+
+* Using the  xref:unity::page$play-services-resolver.adoc[External Dependency Manager for Unity, window=_blank]
+* A custom Gradle build that contains dependencies in the project's Gradle file.
+
+=== Native iOS
+
+If you are building a native iOS game, you will need to be able to:
+
+* Add things to your `Info.plist`
+* Add dependencies to your project
+
+Both of these are easily accomplished inside Xcode.
+
+=== Native Android
+
+If you are building a native Android game, you will need to be able to:
+
+* Add things to your `AndroidManifest.xml`
+* Add dependencies to your `build.gradle`
+
+Both of these are easily accomplished via Android Studio or a text editor.
+
+include::partial$push-credentials.adoc[leveloffset=+1]
