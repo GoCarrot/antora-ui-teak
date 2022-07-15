@@ -157,6 +157,11 @@ resource "aws_s3_bucket_policy" "docs-bucket" {
   ]
 }
 
+data "aws_ssm_parameter" "logs-bucket" {
+  provider = aws.admin
+
+  name = "${local.parameter_prefix}/config/core/http_access_log_bucket"
+}
 
 locals {
   s3_origin_id = "docs-s3-origin"
@@ -178,6 +183,11 @@ resource "aws_cloudfront_distribution" "docs" {
   default_root_object = "index.html"
 
   aliases = ["${var.subdomain}.${var.domain_root}"]
+
+  logging_config {
+    bucket = nonsensitive(data.aws_ssm_parameter.logs-bucket.value)
+    prefix = "cf/teak-docs/"
+  }
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
