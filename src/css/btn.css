@@ -32,3 +32,13 @@
     border: 2px solid #9E9EB6;
     color: #9E9EB6 !important;
 }
+
+.btn--teak {
+    background: none;
+    border: 2px solid #F15A29;
+    color: #F15A29 !important;
+}
+.btn--teak:hover {
+  text-decoration: none !important;
+  background: #fff;
+}

@@ -164,12 +164,18 @@
   font-size: calc(18 / var(--rem-base) * 1rem);
 }
 
-.doc .right {
+.doc .right,
+.doc .imageblock.right {
   float: right;
+  margin-left: 1rem;
+  margin-top: 0;
 }
 
-.doc .left {
+.doc .left,
+.doc .imageblock.left {
   float: left;
+  margin-right: 1rem;
+  margin-top: 0;
 }
 
 .doc .stretch {
@@ -201,6 +207,10 @@
 .doc hr {
   margin: 1rem 0 0;
 }
+
+.doc .float-group:before,
+.doc .float-group:after { content: " "; display: table; }
+.doc .float-group:after { clear: both; }
 
 .doc table.tableblock {
   font-size: calc(15 / var(--rem-base) * 1rem);
