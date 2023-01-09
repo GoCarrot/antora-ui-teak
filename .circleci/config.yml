@@ -11,7 +11,8 @@ parameters:
 
 orbs:
   aws-cli: circleci/aws-cli@2.0.6
-  teak: teak/buildomat@0.1
+  teak: teak/sdk-utils@1
+  buildomat: teak/buildomat@0.1
 
 jobs:
   build:
@@ -72,7 +73,7 @@ jobs:
       - buildomat/aws-oidc-assume
       - buildomat/terraform-init:
           path: terraform
-      - buildomat/terraform-output:
+      - teak/terraform-output:
           path: terraform
           workspace: << pipeline.parameters.build_type >>
       - run:
