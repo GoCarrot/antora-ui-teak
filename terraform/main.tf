@@ -13,7 +13,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.73"
+      version = "~> 4"
     }
   }
 }
@@ -95,16 +95,17 @@ data "aws_acm_certificate" "certificate" {
 
 resource "aws_s3_bucket" "docs-bucket" {
   bucket_prefix = "teak-docs-${terraform.workspace}-"
+  force_destroy = terraform.workspace == "development"
+}
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+resource "aws_s3_bucket_server_side_encryption_configuration" "docs-bucket" {
+  bucket = aws_s3_bucket.docs-bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
-
-  force_destroy = terraform.workspace == "development"
 }
 
 resource "aws_s3_bucket_public_access_block" "docs-bucket" {
@@ -116,7 +117,7 @@ resource "aws_s3_bucket_public_access_block" "docs-bucket" {
   restrict_public_buckets = true
 }
 
-resource "aws_s3_bucket_object" "robots-deny" {
+resource "aws_s3_object" "robots-deny" {
   count = terraform.workspace == "development" ? 1 : 0
 
   bucket       = aws_s3_bucket.docs-bucket.id
@@ -156,6 +157,11 @@ resource "aws_s3_bucket_policy" "docs-bucket" {
   ]
 }
 
+data "aws_ssm_parameter" "logs-bucket" {
+  provider = aws.admin
+
+  name = "${local.parameter_prefix}/config/core/http_access_log_bucket"
+}
 
 locals {
   s3_origin_id = "docs-s3-origin"
@@ -177,6 +183,11 @@ resource "aws_cloudfront_distribution" "docs" {
   default_root_object = "index.html"
 
   aliases = ["${var.subdomain}.${var.domain_root}"]
+
+  logging_config {
+    bucket = nonsensitive(data.aws_ssm_parameter.logs-bucket.value)
+    prefix = "cf/teak-docs/"
+  }
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
