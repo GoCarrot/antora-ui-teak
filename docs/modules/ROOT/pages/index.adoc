@@ -1,4 +1,3 @@
-:page-no-nav: true
 
 = Getting Started
 

@@ -15,7 +15,7 @@
         <!-- <div class="navbar-item">
           <a class="navbar-link" href="#">🕮</a>
         </div> -->
-        <div class="navbar-item has-dropdown is-hoverable">
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">Usage</a>
           <div class="navbar-dropdown">
             {{#each site.components.usage.latest.navigation}}
@@ -34,9 +34,7 @@
               <a class="navbar-item" href="{{{url}}}">{{title}}</a>
             {{/each}}
           </div>
-        </div>
-        &nbsp;
-        &nbsp;
+        </div> -->
         &nbsp;
         <div id="search-field" class="field">
           <input id="search-input" type="text" placeholder="Search"{{#if page.home}} autofocus{{/if}}>
@@ -44,10 +42,6 @@
       </div>
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item navbar-item-stretch search hide-for-print">
-
-        <!-- <div id="search-field" class="field">
-          <input id="search-input" type="text" placeholder="Search"{{#if page.home}} autofocus{{/if}}>
-        </div> -->
         <div class="navbar-item">
           <a class="btn btn--teak" href="https://app.teak.io/" target="_blank">Dashboard</a>
         </div>
