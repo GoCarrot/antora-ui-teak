@@ -1,7 +1,7 @@
 .doc {
   color: var(--doc-font-color);
   font-size: var(--doc-font-size);
-  hyphens: auto;
+  hyphens: none;
   line-height: var(--doc-line-height);
   margin: var(--doc-margin);
   max-width: var(--doc-max-width);
@@ -35,6 +35,7 @@
 .doc > h1.page:first-child {
   font-size: calc(36 / var(--rem-base) * 1rem);
   margin: 1.5rem 0;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 769px) {
