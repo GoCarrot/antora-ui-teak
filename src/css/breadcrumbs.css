@@ -1,7 +1,9 @@
 .breadcrumbs {
   display: none;
-  flex: 1 1;
-  padding: 0 0.5rem 0 3rem;
+  /* Elaborate hacks to make this the same width as the doc + toc */
+  flex: 0 1 calc(var(--doc-max-width--desktop) + var(--toc-width--widescreen) + 2rem);
+  padding: 0 0.5rem 0 1rem;
+  margin-left: 2rem;
   line-height: var(--nav-line-height);
 }
 

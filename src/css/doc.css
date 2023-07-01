@@ -74,6 +74,7 @@
 .doc h3:not(.discrete),
 .doc h4:not(.discrete) {
   font-weight: var(--alt-heading-font-weight);
+  margin-top: 2rem;
 }
 
 .doc h1 .anchor,
@@ -144,6 +145,10 @@
   border-radius: 0.25em;
   font-size: 0.95em;
   padding: 0.125em 0.25em;
+}
+
+.doc .colist > table > tbody > tr > td > .paragraph {
+  margin-top: 0.5rem;
 }
 
 .doc code,
@@ -543,8 +548,14 @@
   padding-left: 0.5rem;
 }
 
+.doc ul.checklist p {
+  text-indent: -26px;
+  margin-left: 26px;
+}
+
 .doc ul.checklist p > i.fa-check-square-o:first-child,
 .doc ul.checklist p > i.fa-square-o:first-child {
+  text-indent: 0;
   display: inline-flex;
   justify-content: center;
   width: 1.25rem;

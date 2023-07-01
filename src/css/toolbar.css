@@ -2,6 +2,7 @@
   /* opacity: 0; */
   color: var(--toolbar-font-color);
   align-items: center;
+  padding-top: 2px; /* visually adjust the 'center' because of the menu shadow */
   background-color: var(--toolbar-background);
   box-shadow: 0 1px 0 var(--toolbar-border-color);
   display: flex;
@@ -30,6 +31,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .toolbar {
+    justify-content: center;
+  }
   .nav-toggle {
     display: none;
   }
