@@ -79,7 +79,7 @@ function replaceTargetWithLink(match, target, linkText) {
     return match;
   }
 
-  linkText = target; //linkText ? linkText : target;
+  linkText = linkText ? linkText : target;
   return `xref:${symbolMap.antora.name}:api:${symbol.source}.adoc#${symbol.target}["${linkText}", window=_blank]`;
 }
 
@@ -157,7 +157,7 @@ module.exports.register = function register (registry) {
         } else {
           // Replace
           reader.lines.push(
-            lines[i].replaceAll(/<<(?<target>.+?)>>/g, replaceTargetWithLink)
+            lines[i].replaceAll(/<<(?<target>.+?)>>(?:\[(?<linkText>.+?)\])?/g, replaceTargetWithLink)
           );
         }
       }
