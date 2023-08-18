@@ -177,6 +177,19 @@
   margin-top: 0;
 }
 
+.doc .paragraph + .imageblock.right,
+.doc h3 + .imageblock.right,
+.doc h4 + .imageblock.right,
+.doc h5 + .imageblock.right,
+.doc h6 + .imageblock.right,
+.doc .paragraph + .imageblock.left 
+.doc h3 + .imageblock.left
+.doc h4 + .imageblock.left
+.doc h5 + .imageblock.left
+.doc h6 + .imageblock.left {
+  margin-top: 1rem;
+}
+
 .doc .left,
 .doc .imageblock.left {
   float: left;
@@ -582,7 +595,9 @@
 }
 
 .doc .olist li + li,
-.doc .ulist li + li {
+.doc .ulist li + li,
+.doc .olist li .paragraph,
+.doc .ulist li .paragraph {
   margin-top: 0.5rem;
 }
 

@@ -107,6 +107,12 @@ html.is-clipped--nav {
   /*font-weight: var(--body-font-weight-bold);*/
 }
 
+.nav-menu a mark {
+  margin-left: 18px;
+  background-color: inherit;
+  color: inherit;
+}
+
 .nav-list {
   margin: 0 0 0 0.75rem;
   padding: 0;
