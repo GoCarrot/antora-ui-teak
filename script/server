@@ -22,10 +22,10 @@ playbook.content.sources.forEach((source) => {
 
 const procfile = path.join(__dirname, '..', 'Procfile');
 fs.writeFileSync(procfile, `web: npx live-server playbook/build/site
-watcher: npx chokidar "*" "**/*" ${watchPaths.join(' ')} --ignore "/build|public/" -c "npx gulp bundle && npx antora playbook/antora-playbook-dev.yml"
+watcher: npx chokidar "*" "**/*" ${watchPaths.join(' ')} --ignore "/build|public|changelog\/pages|changelog\/partials|modules\/api\/|_doxygen|symbolMap.json/" -c "cd ../teak-ios && yarn && yarn docs && cd ../teak-android && yarn && yarn docs && cd ../teak-unity && yarn && yarn docs && cd ../antora-ui-teak && npx gulp bundle && npx antora playbook/antora-playbook-dev.yml"
 `);
 
-execSync('npx gulp bundle && npx antora playbook/antora-playbook-dev.yml');
+execSync('cd ../teak-ios && yarn && yarn docs && cd ../teak-android && yarn && yarn docs && cd ../teak-unity && yarn && yarn docs && cd ../antora-ui-teak && npx gulp bundle && npx antora playbook/antora-playbook-dev.yml');
 
 const nf = spawn('npx', ['nf', '-p', '8080', 'start'], { stdio: 'inherit' });
 nf.on('error', (err) => {
