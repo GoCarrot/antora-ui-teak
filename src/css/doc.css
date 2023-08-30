@@ -156,6 +156,18 @@
   hyphens: none;
 }
 
+.referencelink {
+  margin-top: -16px;
+  display: block;
+  text-align: right;
+  color: #5d5d5d;
+  font-size: .88889rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: .01em;
+  padding-bottom: 0.075rem;
+}
+
 .doc pre {
   font-size: calc(16 / var(--rem-base) * 1rem);
   line-height: 1.5;
