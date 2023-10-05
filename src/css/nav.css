@@ -28,6 +28,10 @@
   visibility: visible;
 }
 
+.hide-nav .nav-container {
+  display: none;
+}
+
 .nav {
   background: var(--nav-background);
   border-right: 1px solid var(--color-smoke-90);

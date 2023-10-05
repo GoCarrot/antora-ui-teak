@@ -30,6 +30,12 @@
   margin-right: -0.25rem;
 }
 
+@media screen and (max-width: 1023.5px) {
+  .hide-nav .toolbar {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .toolbar {
     justify-content: center;

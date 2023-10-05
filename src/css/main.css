@@ -3,6 +3,10 @@
     display: none;
   }
 
+  .hide-nav aside.toc.embedded {
+    display: none;
+  }
+
   main > .content {
     overflow-x: auto;
   }

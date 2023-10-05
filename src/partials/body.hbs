@@ -1,6 +1,4 @@
-<div class="body">
-{{#unless page.attributes.no-nav}}
+<div class="body {{#if page.attributes.no-nav}}hide-nav{{/if}}">
 {{> nav}}
-{{/unless}}
 {{> main}}
 </div>
