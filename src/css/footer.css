@@ -45,6 +45,7 @@ footer.footer {
   height: 3em;
 }
 .globalfooter-info-body {
+  max-width: 220px;
   margin-bottom: 2.7em;
 }
 .navmenu-header {
@@ -61,6 +62,9 @@ footer.footer {
 .inlinegroup-item {
   margin-right: 12px;
 }
+.navmenu-list-item {
+  white-space: nowrap;
+}
 .navmenu-list-item a {
   font-weight: bold;
   color: #9E9EB6;
@@ -68,3 +72,10 @@ footer.footer {
 h6 {
   font-weight: 300;
 }
+
+@media screen and (max-width: 1023.5px) {
+  .globalfooter-logo {
+    height: 2.5em;
+  }
+}
+

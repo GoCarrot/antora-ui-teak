@@ -2,6 +2,7 @@
   /* opacity: 0; */
   color: var(--toolbar-font-color);
   align-items: center;
+  padding-top: 2px; /* visually adjust the 'center' because of the menu shadow */
   background-color: var(--toolbar-background);
   box-shadow: 0 1px 0 var(--toolbar-border-color);
   display: flex;
@@ -29,7 +30,16 @@
   margin-right: -0.25rem;
 }
 
+@media screen and (max-width: 1023.5px) {
+  .hide-nav .toolbar {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1024px) {
+  .toolbar {
+    justify-content: center;
+  }
   .nav-toggle {
     display: none;
   }
@@ -41,7 +51,7 @@
 }
 
 .home-link {
-  display: block;
+  display: none;
   background: url(../img/home-o.svg) no-repeat center;
   height: calc(var(--toolbar-height) / 2);
   width: calc(var(--toolbar-height) / 2);

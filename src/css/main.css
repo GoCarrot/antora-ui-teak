@@ -3,6 +3,10 @@
     display: none;
   }
 
+  .hide-nav aside.toc.embedded {
+    display: none;
+  }
+
   main > .content {
     overflow-x: auto;
   }
@@ -16,6 +20,7 @@
 
   main > .content {
     display: flex;
+    justify-content: center;
   }
 
   aside.toc.embedded {

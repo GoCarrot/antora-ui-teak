@@ -8,7 +8,7 @@ If you know where you're going already, and want to jump right in, here's your l
 
 * xref:android::page$integration.adoc[Native Android]
 * xref:ios::page$integration.adoc[Native iOS]
-* xref:unity::page$unity-editor.adoc[Unity]
+* xref:unity::page$quickstart/index.adoc[Unity]
 
 === Server Developers
 
@@ -44,7 +44,7 @@ You will also need a way to add dependencies to your project. This is frequently
 
 === Unity Integration
 
-Finally, here's everything you need for xref:unity::page$unity-editor.adoc[Teak Integration in the Unity Editor].
+Finally, here's everything you need for xref:unity::page$quickstart/index.adoc[Teak Integration in the Unity Editor].
 
 === Native iOS
 

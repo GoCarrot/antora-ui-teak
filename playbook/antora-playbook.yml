@@ -46,7 +46,7 @@ asciidoc:
 
   attributes:
     page-component-sort-order: 'home, usage, *'
-    page-reference-sort-order: '!home, !usage, server-api, *'
+    page-reference-sort-order: '!home, !usage, unity, ios, android, server-api, *'
     linkattrs: ''
     experimental: ''
     doxygen2adoc:
