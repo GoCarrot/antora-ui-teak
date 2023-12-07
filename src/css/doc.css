@@ -234,6 +234,16 @@
   padding: 0.5rem;
 }
 
+.doc table.tableblock.frame-none.grid-none th:first-child,
+.doc table.tableblock.frame-none.grid-none td:first-child {
+  padding-left: 0;
+}
+
+.doc table.tableblock.frame-none.grid-none th:last-child,
+.doc table.tableblock.frame-none.grid-none td:last-child {
+  padding-right: 0;
+}
+
 .doc table.tableblock,
 .doc table.tableblock > * > tr > * {
   border: 0 solid var(--table-border-color);
@@ -693,6 +703,14 @@
 
 .doc .sidebarblock > .content > :not(.title):first-child {
   margin-top: 0;
+}
+
+.doc .sidebarblock.sidebarlink {
+  background: var(--admonition-background);
+}
+
+.doc .sidebarblock.sidebarlink a {
+  font-size: calc(18 / var(--rem-base) * 1rem);
 }
 
 /* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */

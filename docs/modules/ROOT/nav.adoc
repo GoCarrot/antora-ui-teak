@@ -1,28 +1,130 @@
-._Welcome_
-* What is Teak
-* Before you Start
+* xref:index.adoc[Getting Started]
+
+* Teak Overview
+* CRM for Games
+** Why Game CRM
+** Goals of CRM
+** Defining your core Audiences
+***	Your first Notification
+***	How to think about Rewards
+***	Posting your first Link
+***	Content Cadence
+***	Building your Content Calendar
+***	A/B Testing
+** Refining your Audiences
+** ... 
+** CRM: How to shepherd the integration process
+** Developers: Supporting your CRM
+
 * &nbsp;
 
-._SDKs_
-* *Unity*
+* _SDKs_
+* Unity
 ** Getting Started
 ** Editor
 ** iOS
 ** Android
-* *iOS*
+* iOS
 ** Getting Started
-* *Android*
+* Android
 ** Getting Started
 * &nbsp;
 
-._Guides_
-* *First Notification*
+* _Guides_
+* First Notification
 
-farts
-* xref:index.adoc[Getting Started]
 * xref:usage::page$index.adoc[Teak Usage]
 * xref:developers.adoc[For Developers]
 ** xref:unity::page$before-you-start.adoc[Unity]
 ** xref:ios::page$integration.adoc[iOS]
 ** xref:android::page$integration.adoc[Android]
 ** xref:server-api::page$rewards/endpoint.adoc[Server API]
+* &nbsp;
+
+* _Setup Guides_
+* SDK Install
+* Notifications
+* Rewarding
+* Reward Links
+* Deep Linking
+* &nbsp;
+
+* _Unity SDK_
+* Requirements
+* Quickstart
+** Install the Teak SDK
+*** Create a New Game in Teak
+*** Get your App ID and API Key
+*** Install Teak in your Unity Project
+*** Configure Teak in your game
+** Add Required Code
+*** Identify User
+*** Locate your player IDs in your game scripts
+*** Add Teak to your game script
+*** Send your player IDs to Teak
+*** Ask the player for permission
+*** Testing Your Teak Installation
+** iOS Setup
+*** Ensure you have an Apple Developer account
+*** Configure Apple push notification certificates and upload to Teak
+*** Create a new iOS build
+*** Connect an iOS device
+*** Seeing Your Active User
+** Android Setup
+*** Placeholder
+*** Seeing Your Active User
+** Getting Teak on WebGL Device
+*** Placeholder
+*** Seeing Your Active User
+** Sending Your First Notification
+*** Create a Message to Send
+*** Add a Preview Recipient
+*** Send Preview
+* &nbsp;
+
+* Features
+** Identify User
+** Requesting Permissions
+** Session Start Listener
+** Reward Listener
+** Local Notifications
+*** Scheduling a Local Notification
+*** Scheduling a Long-Distance Notification
+*** Canceling a Notification
+*** Canceling all Local Notifications
+** Determining if User Has Disabled Push Notifications
+*** Notification State
+*** Opening the Settings for Your App
+** Badging Your App
+** Post Launch Summary
+** Player Properties
+*** Numeric Property
+*** String Property
+** Analytics Events
+*** Event Format
+*** Tracking an Event
+*** Incrementing Events
+** Deep Links
+*** How Routes Work
+*** When Are Deep Links Executed
+** Logout
+** Reporting Facebook Payments Purchases
+** Preprocessor Defines
+* Troubleshooting
+* API Reference
+* &nbsp;
+
+* _iOS Native SDK_
+* Getting Started
+* API Reference
+* &nbsp;
+
+* _Android Native SDK_
+* Getting Started
+* API Reference
+* &nbsp;
+
+* _Server API_
+* Getting Started
+* Server API
+
