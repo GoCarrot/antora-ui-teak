@@ -28,6 +28,9 @@ content:
   - url: https://github.com/GoCarrot/server-api-docs.git
   # Teak usage docs
   - url: https://github.com/GoCarrot/teak-usage.git
+  # Product Updates
+  - url: https://github.com/GoCarrot/teak-usage.git
+    start_path: updates
 antora:
   extensions:
   - require: '@antora/lunr-extension'
@@ -45,7 +48,7 @@ asciidoc:
   - ./lib/doxygen2adoc
 
   attributes:
-    page-component-sort-order: 'home, usage, *'
+    page-component-sort-order: 'home, usage, unity, ios, android, server-api, *'
     page-reference-sort-order: '!home, !usage, unity, ios, android, server-api, *'
     linkattrs: ''
     experimental: ''
