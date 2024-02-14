@@ -9,6 +9,10 @@
   -webkit-hyphens: none !important;
 }
 
+.doc:only-child {
+  max-width: calc(var(--doc-max-width) + var(--toc-width));  
+}
+
 @media screen and (min-width: 1024px) {
   .doc {
     flex: auto;
@@ -16,6 +20,10 @@
     margin: var(--doc-margin--desktop);
     max-width: var(--doc-max-width--desktop);
     min-width: 0;
+  }
+
+  .doc:only-child {
+    max-width: calc(var(--doc-max-width--desktop) + var(--toc-width--widescreen));  
   }
 }
 

@@ -18,6 +18,7 @@
 
 * &nbsp;
 
+[.bold]
 * _SDKs_
 * Unity
 ** Getting Started

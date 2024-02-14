@@ -262,13 +262,14 @@ body {
 
   .navbar,
   .navbar-menu,
-  .navbar-end {
+  .navbar-middle {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-grow: 1;
   }
 
-  .navbar-end {
+  .navbar-middle {
     gap: 4px;
   }
 
@@ -303,24 +304,24 @@ body {
     top: 50%;
   }
 
-  .navbar-end > .navbar-item,
-  .navbar-end .navbar-link {
+  .navbar-middle > .navbar-item,
+  .navbar-middle .navbar-link {
     color: var(--navbar-font-color);
   }
 
-  .navbar-end > a.navbar-item:hover,
-  .navbar-end .navbar-link:hover,
-  .navbar-end .navbar-item.has-dropdown:hover .navbar-link:hover {
+  .navbar-middle > a.navbar-item:hover,
+  .navbar-middle .navbar-link:hover,
+  .navbar-middle .navbar-item.has-dropdown:hover .navbar-link:hover {
     background: var(--navbar_hover-background);
     color: var(--navbar_hover-font-color);
   }
 
-  .navbar-end .navbar-item.has-dropdown:hover .navbar-link {
+  .navbar-middle .navbar-item.has-dropdown:hover .navbar-link {
     background: var(--navbar_hover-background);
     color: var(--navbar-font-color);
   }
 
-  .navbar-end .navbar-link::after {
+  .navbar-middle .navbar-link::after {
     border-color: currentColor;
   }
 

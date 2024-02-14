@@ -1,11 +1,11 @@
 = Welcome
+:page-no-toc: true
 
-Getting up and running with Teak is easy, and we're going to help you keep it easy by giving you an overview of everything you'll need to plan tasks, and talk to the people who have what you need.
-
+Teak is a CRM for Free to Play games.
 
 == Getting Started
 
-[cols="2*", frame="none", grid="none"]
+[cols="2*", role="nav-table", frame="none", grid="none"]
 |===
 a|
 

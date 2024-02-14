@@ -1,5 +1,6 @@
 //
-// https://gitlab.com/djencks/antora-component-sorting-example/-/blob/master/supplemental_uis/component_full/helpers/componentSorter.js
+// https://gitlab.com/djencks/antora-component-sorting-example/-/blob
+//        /master/supplemental_uis/component_full/helpers/componentSorter.js
 //
 'use strict'
 

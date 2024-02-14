@@ -2,7 +2,11 @@
   {{#if page.component}}
     <div class="context">
       <span class="title">{{page.component.title}}</span>
-      <span class="version">{{page.componentVersion.displayVersion}}</span>
+      <span class="version">
+        {{#if (not (eq page.componentVersion.displayVersion "default"))}}
+          {{page.componentVersion.displayVersion}}
+        {{/if}}
+      </span>
     </div>
   {{/if}}
 </div>
