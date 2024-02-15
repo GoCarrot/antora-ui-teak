@@ -32,7 +32,7 @@ content:
   
   ### Local Product Updates ###
   - url: ./../../teak-usage
-    start_path: updates
+    start_path: newsletters
   
 antora:
   extensions:

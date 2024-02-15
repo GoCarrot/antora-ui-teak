@@ -30,7 +30,7 @@ content:
   - url: https://github.com/GoCarrot/teak-usage.git
   # Product Updates
   - url: https://github.com/GoCarrot/teak-usage.git
-    start_path: updates
+    start_path: newsletters
 antora:
   extensions:
   - require: '@antora/lunr-extension'
