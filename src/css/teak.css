@@ -4,3 +4,8 @@
   border: 6px solid #f3f3e4;
   border-radius: 3px;
 }
+
+.doc .exampleblock.newsletter-example>.content {
+  border: 6px solid #f3f3e4;
+  border-radius: 3px;
+}
