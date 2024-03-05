@@ -2,4 +2,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id={{this}}"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','{{this}}')</script>
     {{/with}}
+    {{#with site.keys.fathom}}
+    <script src="https://cdn.usefathom.com/script.js" data-site="{{{this}}}" defer></script>
+    {{/with}}
     <script>var uiRootPath = '{{{uiRootPath}}}'</script>
