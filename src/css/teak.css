@@ -9,3 +9,9 @@
   border: 6px solid #f3f3e4;
   border-radius: 3px;
 }
+
+.doc .imageblock.img-left {
+  align-items: start;
+  margin-right: 1rem;
+  margin-top: 0;
+}
