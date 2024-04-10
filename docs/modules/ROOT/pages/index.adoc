@@ -1,4 +1,5 @@
 = Welcome
+:page-aliases: /home/index.adoc
 :page-no-toc: true
 
 Teak is a CRM for Free to Play games.
