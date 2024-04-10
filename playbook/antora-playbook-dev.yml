@@ -1,6 +1,7 @@
 site:
   title: Teak Documentation
   url: /
+  robots: disallow
   start_page: ::index.adoc
 urls:
   latest_version_segment_strategy: replace
