@@ -1,4 +1,5 @@
 = Teak for Developers
+:page-aliases: /home/developers.adoc
 
 == Quick Start
 
