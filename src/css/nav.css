@@ -97,8 +97,12 @@ html.is-clipped--nav {
   color: var(--color-gray-30);
   font-size: inherit;
   font-weight: var(--body-font-weight-bold);
-  margin: 0;
+  margin: 0 0 0 0.75rem;
   padding: 0.25em 0 0.125em;
+}
+.nav-panel-menu .nav-menu:first-child h3.title {
+  /* hide the title of the root nav */
+  display: none; 
 }
 
 .nav-menu a {
@@ -162,9 +166,17 @@ html.is-clipped--nav {
   transform: rotate(90deg);
 }
 
-.is-current-page > .nav-link,
-.is-current-page > .nav-text {
+.is-current-page:not(:has(.is-current-page)) > .nav-link,
+.is-current-page:not(:has(.is-current-page)) > .nav-text {
   font-weight: var(--body-font-weight-bold);
+}
+
+.is-current-page:not(:has(.is-current-page)) > .nav-link::after,
+.is-current-page:not(:has(.is-current-page)) > .nav-text::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.25rem;
+  margin-top: calc(-0.0625em - 0.25rem);
 }
 
 .nav-panel-explore {

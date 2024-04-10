@@ -1,131 +1,79 @@
 * xref:index.adoc[Getting Started]
+* Why Teak
 
-* Teak Overview
-* CRM for Games
-** Why Game CRM
-** Goals of CRM
-** Defining your core Audiences
-***	Your first Notification
-***	How to think about Rewards
-***	Posting your first Link
-***	Content Cadence
-***	Building your Content Calendar
-***	A/B Testing
-** Refining your Audiences
-** ... 
-** CRM: How to shepherd the integration process
-** Developers: Supporting your CRM
+* How-to Guides
+** What is Games CRM?
+** Lifecycle Audiences
+** Helpful Audiences
+** Creating Effective Campaigns
+** Managing Rewards
+** Analyzing Player Data
 
-* &nbsp;
+* User Manual
+** Quickstart
+** Audiences
+** Campaigns
+*** Scheduling
+** Messages
+*** Push Notifications
+**** Content Guidelines
+**** Android Text Markup
+*** Email
+**** Templating
+**** Text Markup
+*** Links
+**** Overview
+**** Reward Links
+**** Link Metrics
+**** QR Codes
+** Rewards
+*** Overview
+*** Tiered Rewards
+*** Randomized Rewards
+** A/B Testing
+*** Push Content
+*** Email Content
+** Reporting
+*** Dashboard Metrics
+*** Data Sync
+** Glossary
 
-[.bold]
-* _SDKs_
-* Unity
+* Integration Guides
 ** Getting Started
-** Editor
-** iOS
-** Android
-* iOS
-** Getting Started
-* Android
-** Getting Started
-* &nbsp;
+** Technical Overview
+** Unity SDK
+*** Getting Started in Unity
+*** Features
+*** Advanced Setup
+*** SDK5 Preview
+*** Changelog
+*** API Reference
+** iOS Native SDK
+*** Getting Started on iOS
+*** Features
+*** Advanced Setup
+*** SDK5 Preview
+*** Changelog
+*** API Reference
+** Android Native SDK
+*** Getting Started on Android
+*** Features
+*** Advanced Setup
+*** SDK5 Preview
+*** Changelog
+*** API Reference
+** Server API
+** 3rd Party Integrations
+*** Apple Push Notification Service (APNs) Guide
+*** Firebase Cloud Messaging (v1) Credential Guide
+*** Migrate to Firebase Cloud Messaging (v1)
+*** Amazon Device Messaging Credential Guide
+*** Connect SendGrid and Teak
 
-* _Guides_
-* First Notification
-
-* xref:usage::page$index.adoc[Teak Usage]
-* xref:developers.adoc[For Developers]
-** xref:unity::page$before-you-start.adoc[Unity]
-** xref:ios::page$integration.adoc[iOS]
-** xref:android::page$integration.adoc[Android]
-** xref:server-api::page$rewards/endpoint.adoc[Server API]
-* &nbsp;
-
-* _Setup Guides_
-* SDK Install
-* Notifications
-* Rewarding
-* Reward Links
-* Deep Linking
-* &nbsp;
-
-* _Unity SDK_
-* Requirements
-* Quickstart
-** Install the Teak SDK
-*** Create a New Game in Teak
-*** Get your App ID and API Key
-*** Install Teak in your Unity Project
-*** Configure Teak in your game
-** Add Required Code
-*** Identify User
-*** Locate your player IDs in your game scripts
-*** Add Teak to your game script
-*** Send your player IDs to Teak
-*** Ask the player for permission
-*** Testing Your Teak Installation
-** iOS Setup
-*** Ensure you have an Apple Developer account
-*** Configure Apple push notification certificates and upload to Teak
-*** Create a new iOS build
-*** Connect an iOS device
-*** Seeing Your Active User
-** Android Setup
-*** Placeholder
-*** Seeing Your Active User
-** Getting Teak on WebGL Device
-*** Placeholder
-*** Seeing Your Active User
-** Sending Your First Notification
-*** Create a Message to Send
-*** Add a Preview Recipient
-*** Send Preview
-* &nbsp;
-
-* Features
-** Identify User
-** Requesting Permissions
-** Session Start Listener
-** Reward Listener
-** Local Notifications
-*** Scheduling a Local Notification
-*** Scheduling a Long-Distance Notification
-*** Canceling a Notification
-*** Canceling all Local Notifications
-** Determining if User Has Disabled Push Notifications
-*** Notification State
-*** Opening the Settings for Your App
-** Badging Your App
-** Post Launch Summary
-** Player Properties
-*** Numeric Property
-*** String Property
-** Analytics Events
-*** Event Format
-*** Tracking an Event
-*** Incrementing Events
-** Deep Links
-*** How Routes Work
-*** When Are Deep Links Executed
-** Logout
-** Reporting Facebook Payments Purchases
-** Preprocessor Defines
-* Troubleshooting
-* API Reference
-* &nbsp;
-
-* _iOS Native SDK_
-* Getting Started
-* API Reference
-* &nbsp;
-
-* _Android Native SDK_
-* Getting Started
-* API Reference
-* &nbsp;
-
-* _Server API_
-* Getting Started
-* Server API
-
+* SDK & API Reference
+** Unity SDK Reference
+** iOS Native SDK Reference
+** Android Native SDK Reference
+** Server API Reference
+* FAQ
+* Support

@@ -1,10 +1,30 @@
 {{#if page.navigation}}
   <div class="nav-panel-menu is-active" data-panel="menu">
-    {{#each (componentSorter site.components page.attributes.component-sort-order)}}
+    {{#each (componentSorter site.components page.attributes.base-nav-sort-order)}}
       <nav class="nav-menu {{#if (eq @root.page.component.name ./latest.name)}}is-current-component{{/if}}">
         <h3 class="title"><a class="{{#if (eq @root.page.url ./latest.url)}}is-current-root{{/if}}" href="{{{relativize ./url}}}">{{{./latest.title}}}</a></h3>
         {{> nav-tree navigation=./latest.navigation }}
       </nav>
+      <hr />
     {{/each}}
+    <nav class="nav-menu {{#if (eq @root.page.component.name ./latest.name)}}is-current-component{{/if}}">
+      <h3 class="title">Integration Guides</h3>
+      {{#each (componentSorter site.components page.attributes.sdk-nav-sort-order)}}
+        <ul class="nav-list">
+          <li class="nav-item{{#if (eq ./url @root.page.url)}} is-current-page{{/if}}" data-depth="{{or ../level 0}}">
+            <button class="nav-item-toggle"></button>
+            <a class="nav-link{{#if ./items.length}} has-toggle{{/if}}" href="
+              {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
+              {{~else}}{{{./url}}}{{~/if}}">{{{./latest.title}}}</a>
+            {{> nav-tree navigation=./latest.navigation }}
+          </li>
+        </ul>
+      {{/each}}
+    </nav>
   </div>
 {{/if}}
+
+
+
+
+

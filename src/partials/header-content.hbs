@@ -11,8 +11,11 @@
       </button>
     </div>
     <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-left">
+        <a class="navbar-link" style="padding-left: 0;" href="{{{or site.url siteRootPath}}}">Docs</a>
+      </div>
       <div class="navbar-middle">
-<!--         <div class="navbar-item has-dropdown is-hoverable">
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/usage/index.html">User Guide</a>
           <div class="navbar-dropdown">
             {{#each site.components.usage.latest.navigation}}

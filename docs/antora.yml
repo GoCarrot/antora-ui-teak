@@ -1,5 +1,5 @@
-name: home
-title: Docs
+name: ROOT
+title: Documentation
 version: ~
 nav:
 - modules/ROOT/nav.adoc
