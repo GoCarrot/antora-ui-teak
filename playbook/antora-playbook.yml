@@ -1,7 +1,6 @@
 site:
   title: Teak Documentation
   url: https://docs.teak.io/
-  robots: disallow
   start_page: home::index.adoc
   keys:
     fathom: 'OBJZLAOP'
