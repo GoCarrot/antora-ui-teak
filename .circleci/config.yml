@@ -82,7 +82,7 @@ jobs:
             cd playbook/build/site
             sha512sum index.html
             eval $(aws sts assume-role --role-arn ${TF_OUT_UPLOAD_ROLE_ARN} --role-session-name docs | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
-            aws s3 sync . s3://${TF_OUT_DOCS_BUCKET_NAME} --delete
+            aws s3 sync . s3://${TF_OUT_DOCS_BUCKET_NAME} --delete --exclude=robots.txt
             INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${TF_OUT_CLOUDFRONT_DISTRIBUTION_ID} --paths "/*" --query Invalidation.Id --output text)
             echo "Created CF Invalidation ${INVALIDATION_ID}"
             while true; do
