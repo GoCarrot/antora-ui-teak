@@ -15,3 +15,13 @@
   margin-right: 1rem;
   margin-top: 0;
 }
+
+/*
+.nav-panel-menu hr,
+.nav-menu {
+  display: none;
+}
+.nav-menu.is-current-component {
+  display: block;
+}
+*/

@@ -1,16 +1,15 @@
 site:
   title: Teak Documentation
-  url: /
-  robots: disallow
-  start_page: ::index.adoc
+  url: https://docs.gocarrot-dev.com/
+  start_page: ROOT::index.adoc
+
 urls:
   latest_version_segment_strategy: replace
   latest_version_segment: latest
 content:
   sources:
-  ### Home ###
-  - url: ./../
-    start_path: docs
+  ### Local Usage Docs ###
+  - url: ./../../teak-usage
 
   ### Locally generated SDK Docs ###
   - url: ./../../teak-unity
@@ -28,13 +27,10 @@ content:
   ### Local Server API Docs ###
   - url: ./../../server-api-docs
 
-  ### Local Usage Docs ###
-  - url: ./../../teak-usage
-  
   ### Local Product Updates ###
   - url: ./../../teak-usage
     start_path: newsletters
-  
+
 antora:
   extensions:
   - require: '@antora/lunr-extension'
@@ -52,8 +48,8 @@ asciidoc:
   - ./lib/doxygen2adoc
 
   attributes:
-    page-reference-sort-order: '!ROOT, !usage, unity, ios, android, server-api, !newsletters, *'
-    page-base-nav-sort-order: 'ROOT, usage'
+    page-reference-sort-order: '!ROOT, unity, ios, android, server-api, !newsletters, *'
+    page-base-nav-sort-order: 'ROOT'
     page-sdk-nav-sort-order: 'unity, ios, android, server-api'
     linkattrs: ''
     experimental: ''

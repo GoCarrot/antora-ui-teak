@@ -102,7 +102,7 @@ html.is-clipped--nav {
 }
 .nav-panel-menu .nav-menu:first-child h3.title {
   /* hide the title of the root nav */
-  display: none; 
+  display: none;
 }
 
 .nav-menu a {
@@ -164,6 +164,10 @@ html.is-clipped--nav {
 
 .nav-item.is-active > .nav-item-toggle {
   transform: rotate(90deg);
+}
+
+.nav-link {
+  color: blue !important;
 }
 
 .is-current-page:not(:has(.is-current-page)) > .nav-link,

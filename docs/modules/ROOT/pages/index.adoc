@@ -2,11 +2,11 @@
 :page-aliases: /home/index.adoc
 :page-no-toc: true
 
-Teak is a CRM for Free to Play games.
+Teak is the CRM that understands free-to-play games. We give your team easy-to-use push notifications, effective emails, and shareable links that can all be rewarded. All this to give your players what they want the most: more playtime.
 
 == Getting Started
 
-[cols="2*", role="nav-table", frame="none", grid="none"]
+[cols="2", role="nav-table", frame="none", grid="none"]
 |===
 a|
 
@@ -21,11 +21,66 @@ a|
 
 [.sidebarlink]
 ****
-Integrate the Teak SDKs 
+Integrate the Teak SDKs
 
 xref:developers.adoc[*Developer Guide*]
 ****
 
+a|
+
+[.sidebarlink]
+****
+Frequently Asked Questions
+
+xref:developers.adoc[*FAQ*]
+****
+
+a|
+
+[.sidebarlink]
+****
+Your First Push
+
+xref:developers.adoc[*Push Guide*]
+****
+
 |===
 
+== Developer Quickstart
+Integrate the Teak SDKs
 
+[cols="4", role="nav-table", frame="none", grid="none"]
+|===
+a|
+
+[.sidebarlink]
+****
+
+xref:developers.adoc[*Unity SDK*]
+****
+
+a|
+
+[.sidebarlink]
+****
+
+xref:developers.adoc[*iOS SDK*]
+****
+
+a|
+
+[.sidebarlink]
+****
+
+xref:developers.adoc[*Android SDK*]
+****
+
+a|
+
+[.sidebarlink]
+****
+
+xref:developers.adoc[*Javascript SDK*]
+****
+
+|===

@@ -5,10 +5,10 @@
         <h3 class="title"><a class="{{#if (eq @root.page.url ./latest.url)}}is-current-root{{/if}}" href="{{{relativize ./url}}}">{{{./latest.title}}}</a></h3>
         {{> nav-tree navigation=./latest.navigation }}
       </nav>
-      <hr />
     {{/each}}
+<!--     <hr />
     <nav class="nav-menu {{#if (eq @root.page.component.name ./latest.name)}}is-current-component{{/if}}">
-      <h3 class="title">Integration Guides</h3>
+      <h3 class="title">Developer Guides</h3>
       {{#each (componentSorter site.components page.attributes.sdk-nav-sort-order)}}
         <ul class="nav-list">
           <li class="nav-item{{#if (eq ./url @root.page.url)}} is-current-page{{/if}}" data-depth="{{or ../level 0}}">
@@ -21,10 +21,5 @@
         </ul>
       {{/each}}
     </nav>
-  </div>
+ -->  </div>
 {{/if}}
-
-
-
-
-

@@ -1,7 +1,6 @@
 site:
   title: Teak Documentation
-  url: https://docs.gocarrot-dev.com/
-  robots: disallow
+  url: https://docs.teak.io/
   start_page: ::index.adoc
   keys:
     fathom: 'OBJZLAOP'
@@ -11,8 +10,7 @@ urls:
 content:
   sources:
   ### Home ###
-  - url: ./../
-    start_path: docs
+  - url: https://github.com/GoCarrot/teak-usage.git
 
   ### Locally generated SDK Docs ###
   - url: ./../../teak-unity
@@ -29,8 +27,6 @@ content:
 
   # SDK usage docs
   - url: https://github.com/GoCarrot/server-api-docs.git
-  # Teak usage docs
-  - url: https://github.com/GoCarrot/teak-usage.git
   # Product Updates
   - url: https://github.com/GoCarrot/teak-usage.git
     start_path: newsletters
@@ -51,8 +47,8 @@ asciidoc:
   - ./lib/doxygen2adoc
 
   attributes:
-    page-reference-sort-order: '!ROOT, !usage, unity, ios, android, server-api, !newsletters, *'
-    page-base-nav-sort-order: 'ROOT, usage'
+    page-reference-sort-order: '!ROOT, unity, ios, android, server-api, !newsletters, *'
+    page-base-nav-sort-order: 'ROOT'
     page-sdk-nav-sort-order: 'unity, ios, android, server-api'
     linkattrs: ''
     experimental: ''

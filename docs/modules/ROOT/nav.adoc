@@ -1,79 +1,88 @@
-* xref:index.adoc[Getting Started]
-* Why Teak
+* DEPRECIATED VERSION
 
-* How-to Guides
-** What is Games CRM?
-** Lifecycle Audiences
-** Helpful Audiences
-** Creating Effective Campaigns
-** Managing Rewards
-** Analyzing Player Data
+* xref:index.adoc[Overview]
+** Working with Teak
+*** Intro to Games CRM
+*** Lifecycle Strategies
+*** Daily Mystery Bonus
+*** Helpful Audiences
+*** Creating Effective Campaigns
+*** Managing Rewards
+*** Analyzing Player Data
 
-* User Manual
-** Quickstart
-** Audiences
-** Campaigns
-*** Scheduling
-** Messages
-*** Push Notifications
-**** Content Guidelines
-**** Android Text Markup
-*** Email
-**** Templating
-**** Text Markup
-*** Links
+** Dashboard Reference
+*** Quickstart
+*** Audiences
+*** Campaigns
+**** Scheduling
+*** Messages
+**** Push Notifications
+***** Content Guidelines
+***** Android Text Markup
+**** Email
+***** Templating
+***** Text Markup
+**** Links
+***** Overview
+***** Reward Links
+***** Link Metrics
+***** QR Codes
+*** Rewards
 **** Overview
-**** Reward Links
-**** Link Metrics
-**** QR Codes
-** Rewards
-*** Overview
-*** Tiered Rewards
-*** Randomized Rewards
-** A/B Testing
-*** Push Content
-*** Email Content
-** Reporting
-*** Dashboard Metrics
-*** Data Sync
-** Glossary
+**** Tiered Rewards
+**** Randomized Rewards
+*** A/B Testing
+**** Push Content
+**** Email Content
+*** Reporting
+**** Dashboard Metrics
+**** Data Sync
+*** Glossary
 
-* Integration Guides
-** Getting Started
-** Technical Overview
-** Unity SDK
-*** Getting Started in Unity
-*** Features
-*** Advanced Setup
-*** SDK5 Preview
-*** Changelog
-*** API Reference
-** iOS Native SDK
-*** Getting Started on iOS
-*** Features
-*** Advanced Setup
-*** SDK5 Preview
-*** Changelog
-*** API Reference
-** Android Native SDK
-*** Getting Started on Android
-*** Features
-*** Advanced Setup
-*** SDK5 Preview
-*** Changelog
-*** API Reference
-** Server API
-** 3rd Party Integrations
-*** Apple Push Notification Service (APNs) Guide
-*** Firebase Cloud Messaging (v1) Credential Guide
-*** Migrate to Firebase Cloud Messaging (v1)
-*** Amazon Device Messaging Credential Guide
-*** Connect SendGrid and Teak
+** Developer Guides
+*** Integration Quickstart
+*** Technical Overview
+*** Unity SDK
+**** Getting Started in Unity
+**** Features
+**** Advanced Setup
+**** SDK5 Preview
+**** Changelog
+**** API Reference
+*** iOS Native SDK
+**** Getting Started on iOS
+**** Features
+**** Advanced Setup
+**** SDK5 Preview
+**** Changelog
+**** API Reference
+*** Android Native SDK
+**** Getting Started on Android
+**** Features
+**** Advanced Setup
+**** SDK5 Preview
+**** Changelog
+**** API Reference
+*** Javascript SDK
+**** Getting Started on Android
+**** Features
+**** Advanced Setup
+**** SDK5 Preview
+**** Changelog
+**** API Reference
+*** Server API
+**** Working with Rewards
+*** 3rd Party Integrations
+**** Apple Push Notification Service (APNs) Guide
+**** Firebase Cloud Messaging (v1) Credential Guide
+**** Migrate to Firebase Cloud Messaging (v1)
+**** Amazon Device Messaging Credential Guide
+**** Connect SendGrid and Teak
 
-* SDK & API Reference
-** Unity SDK Reference
-** iOS Native SDK Reference
-** Android Native SDK Reference
-** Server API Reference
-* FAQ
-* Support
+** SDK & API Reference
+*** Unity SDK Reference
+*** iOS Native SDK Reference
+*** Android Native SDK Reference
+*** Server API Reference
+** FAQ
+** Support
