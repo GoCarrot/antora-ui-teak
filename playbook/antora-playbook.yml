@@ -1,6 +1,6 @@
 site:
   title: Teak Documentation
-  url: https://docs.teak.io/
+  url: https://docs.gocarrot-dev.com/
   start_page: ROOT::index.adoc
   keys:
     fathom: 'OBJZLAOP'
