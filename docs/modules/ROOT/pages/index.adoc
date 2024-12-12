@@ -14,7 +14,7 @@ a|
 ****
 Setup and use the Teak Dashboard
 
-xref:usage::page$index.adoc[*User Guide*]
+xref:user-guide::page$index.adoc[*User Guide*]
 ****
 
 a|
