@@ -2,6 +2,8 @@
 :page-aliases: /home/index.adoc
 :page-no-toc: true
 
+DEPRECIATED
+
 Teak is the CRM that understands free-to-play games. We give your team easy-to-use push notifications, effective emails, and shareable links that can all be rewarded. All this to give your players what they want the most: more playtime.
 
 == Getting Started
