@@ -38,3 +38,9 @@ a + .breadcrumbs {
 .breadcrumbs li:last-of-type::after {
   content: none;
 }
+
+/* hacky workaround for menu indents */
+.breadcrumbs mark {
+  background-color: inherit;
+  color: inherit;
+}

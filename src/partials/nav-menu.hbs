@@ -1,25 +1,19 @@
 {{#if page.navigation}}
   <div class="nav-panel-menu is-active" data-panel="menu">
-    {{#each (componentSorter site.components page.attributes.base-nav-sort-order)}}
-      <nav class="nav-menu {{#if (eq @root.page.component.name ./latest.name)}}is-current-component{{/if}}">
-        <h3 class="title"><a class="{{#if (eq @root.page.url ./latest.url)}}is-current-root{{/if}}" href="{{{relativize ./url}}}">{{{./latest.title}}}</a></h3>
-        {{> nav-tree navigation=./latest.navigation }}
-      </nav>
-    {{/each}}
-<!--     <hr />
-    <nav class="nav-menu {{#if (eq @root.page.component.name ./latest.name)}}is-current-component{{/if}}">
-      <h3 class="title">Developer Guides</h3>
-      {{#each (componentSorter site.components page.attributes.sdk-nav-sort-order)}}
+    <nav class="nav-menu">
+      {{#unless (eq @root.page.component.name page.attributes.base-nav-key)}}
         <ul class="nav-list">
-          <li class="nav-item{{#if (eq ./url @root.page.url)}} is-current-page{{/if}}" data-depth="{{or ../level 0}}">
-            <button class="nav-item-toggle"></button>
-            <a class="nav-link{{#if ./items.length}} has-toggle{{/if}}" href="
-              {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
-              {{~else}}{{{./url}}}{{~/if}}">{{{./latest.title}}}</a>
-            {{> nav-tree navigation=./latest.navigation }}
+          <li class="nav-item">
+            <a class="nav-link nav-back" href="/">Docs Home</a>
           </li>
         </ul>
-      {{/each}}
+        {{#with @root.page.componentVersion}}
+          <h3 class="title"><a href="{{{relativize ./url}}}">{{./title}}</a></h3>
+        {{/with}}
+      {{/unless}}
+      {{#with page.navigation}}
+        {{> nav-tree navigation=this}}
+      {{/with}}
     </nav>
- -->  </div>
+  </div>
 {{/if}}

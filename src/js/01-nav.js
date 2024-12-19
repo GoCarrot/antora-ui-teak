@@ -23,6 +23,12 @@
     menuPanel.scrollTop = 0
   }
 
+  // Open items that have a `.default-open` child element
+  find(menuPanel, '.nav-item .default-open').forEach(function (el) {
+    var li = el.closest('.nav-item')
+    li.classList.add('is-active')
+  })
+
   find(menuPanel, '.nav-item-toggle').forEach(function (btn) {
     var li = btn.parentElement
     btn.addEventListener('click', toggleActive.bind(li))

@@ -50,6 +50,7 @@ asciidoc:
     page-reference-sort-order: '!ROOT, unity, ios, android, server-api, !newsletters, *'
     page-base-nav-sort-order: 'ROOT'
     page-sdk-nav-sort-order: 'unity, ios, android, server-api'
+    page-base-nav-key: 'ROOT'
     linkattrs: ''
     experimental: ''
     doxygen2adoc:
